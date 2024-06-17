@@ -8,10 +8,8 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'Home'
+  name: 'Home',
 })
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -19,7 +19,7 @@ module.exports = {
         extraFileExtensions: ['.vue'],
     },
     rules: {
-        'vue/multi-word-component-names': 'off', // Desliga a regra de nomes de componentes de várias palavras
+        'vue/multi-word-component-names': 'off',
         '@typescript-eslint/explicit-module-boundary-types': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
