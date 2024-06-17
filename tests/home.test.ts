@@ -1,13 +1,13 @@
-import {describe, expect, it} from 'vitest'
-import {mount} from '@vue/test-utils'
-import Home from '../src/views/Home.vue'
-import * as matchers from '@testing-library/jest-dom/matchers'
+import { describe, expect, it } from 'vitest';
+import { mount } from '@vue/test-utils';
+import Home from '../src/views/Home.vue';
+import * as matchers from '@testing-library/jest-dom/matchers';
 
-expect.extend(matchers)
+expect.extend(matchers);
 
 describe('Home.vue', () => {
-    it('renders the home page correctly', () => {
-        const wrapper = mount(Home)
-        expect(wrapper.text()).toContain('Home Page')
-    })
-})
+  it('renders the home page correctly', () => {
+    const wrapper = mount(Home);
+    expect(wrapper.text()).toContain('Home Page');
+  });
+});

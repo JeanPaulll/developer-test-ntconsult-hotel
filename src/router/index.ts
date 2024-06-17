@@ -1,6 +1,6 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
-import Second from '../views/Second.vue'
+import { createRouter, createWebHistory } from 'vue-router';
+import Home from '../views/Home.vue';
+import Second from '../views/Second.vue';
 
 const routes = [
   {
@@ -13,11 +13,11 @@ const routes = [
     name: 'Second',
     component: Second,
   },
-]
+];
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
-})
+});
 
-export default router
+export default router;

@@ -13,5 +13,5 @@ app.use(router);
 
 app.mount('#app');
 import('./assets/js/effects/demo3.js').then((module) => {
-  console.log(':: Effects ok ::');
+  console.log(':: Effects ok ::', module);
 });

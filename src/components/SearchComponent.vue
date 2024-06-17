@@ -10,8 +10,7 @@
               id="tab-1"
             >
               <h5 class="title-icon">
-                <span class="icon-travel"></span
-                ><b>{{ title }}</b>
+                <span class="icon-travel"></span><b>{{ title }}</b>
               </h5>
               <div class="booking_content">
                 <div class="kode_felid">
@@ -103,7 +102,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Options } from 'vue-class-component'
+import { Vue, Options } from 'vue-class-component';
 
 @Options({
   props: {

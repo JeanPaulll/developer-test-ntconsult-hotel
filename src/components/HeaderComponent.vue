@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Options } from 'vue-class-component'
+import { Vue, Options } from 'vue-class-component';
 
 @Options({
   props: {

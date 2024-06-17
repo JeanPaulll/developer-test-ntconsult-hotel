@@ -14,7 +14,7 @@
 }
 
 .intro .icons-author a:hover {
-  color: #FFF;
+  color: #fff;
 }
 .intro .container {
   position: absolute;
@@ -29,7 +29,7 @@
   height: 100%;
   position: relative;
   z-index: 10;
-  color: #FFF;
+  color: #fff;
   display: table;
 }
 .intro .overlay .inner {
@@ -79,8 +79,8 @@
 }
 
 .intro .item {
-  -webkit-transition: .6s;
-          transition: .6s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
   opacity: 1;
 }
 /*
@@ -126,8 +126,8 @@
 */
 .intro .item.active {
   opacity: 1;
-  -webkit-animation: comeIn .6s;
-          animation: comeIn .6s;
+  -webkit-animation: comeIn 0.6s;
+  animation: comeIn 0.6s;
 }
 
 .intro .item svg {
