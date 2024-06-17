@@ -1,4 +1,6 @@
 # Logs
+BRUTOS
+
 logs
 *.log
 npm-debug.log*
