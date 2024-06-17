@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest'
-import { mount } from '@vue/test-utils'
+import {describe, expect, it} from 'vitest'
+import {mount} from '@vue/test-utils'
 import Home from '../src/views/Home.vue'
 import * as matchers from '@testing-library/jest-dom/matchers'
 
