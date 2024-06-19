@@ -1,79 +1,61 @@
-# Teste Prático de Desenvolvimento Front-End com Vue.js
+# developer-ntconsult-hotel
 
-## Objetivo do Teste
+This template should help get you started developing with Vue 3 in Vite.
 
-Desenvolver uma pequena aplicação usando Vue.js para simular parte do sistema de reserva de hotéis. O foco será em implementar uma interface funcional que permita pesquisar, comparar e reservar hotéis.
+## Recommended IDE Setup
 
-## Requisitos do Projeto
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
 
-### 1. Pesquisa de Hotéis:
+## Type Support for `.vue` Imports in TS
 
-- Criar uma interface que permita ao usuário inserir critérios de pesquisa como destino, datas de check-in e check-out, número de quartos e número de hóspedes.
+TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
 
-- Exibir os resultados da pesquisa em uma lista que pode ser ordenada por preço, avaliações e outros critérios relevantes.
+## Customize configuration
 
-### 2. Comparação de Opções:
+See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-- Permitir que o usuário selecione múltiplos hotéis dos resultados de busca para comparar suas características lado a lado.
+## Project Setup
 
-### 3. Reserva de Quartos:
+```sh
+npm install
+```
 
-- Implementar um formulário para reservar um quarto em um hotel selecionado, solicitando informações como nome do usuário, contato e detalhes de pagamento.
+### Compile and Hot-Reload for Development
 
-### 4. Notificações:
+```sh
+npm run dev
+```
 
-- Implementar um mecanismo de notificação que informe ao usuário sobre o status de sua reserva.
+### Type-Check, Compile and Minify for Production
 
-## Critérios Técnicos Específicos:
+```sh
+npm run build
+```
 
-- Utilizar Vue.js juntamente com Pinia para gerenciamento de estado.
+### Run Unit Tests with [Vitest](https://vitest.dev/)
 
-- Utilizar Typescript com Vue 3.
+```sh
+npm run test:unit
+```
 
-- Aplicar Vue Router para navegação.
+### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
 
-- Implementar chamadas de API simuladas (mock) para busca e reserva de hotéis.
+```sh
+npm run test:e2e:dev
+```
 
-- Assegurar que a aplicação seja responsiva e acessível.
+This runs the end-to-end tests against the Vite development server.
+It is much faster than the production build.
 
-- Otimizar o desempenho da aplicação (Lazy Loading, Code splitting).
+But it's still recommended to test the production build with `test:e2e` before deploying (e.g. in CI environments):
 
-- Configurar um pipeline básico de CI/CD para o projeto usando ferramentas como GitHub Actions.
+```sh
+npm run build
+npm run test:e2e
+```
 
-## Tarefas
+### Lint with [ESLint](https://eslint.org/)
 
-### 1. Setup do Projeto:
-
-- Configurar um novo projeto Vue.js usando Vue CLI.
-
-- Estruturar o projeto com componentes reutilizáveis e seguir as melhores práticas de Vue.
-
-### 2. Implementação de Funcionalidades:
-
-- Desenvolver os componentes conforme os requisitos listados.
-
-- Integrar Pinia e Vue Router conforme necessário para a lógica da aplicação.
-
-### 3. Testes:
-- Escrever testes básicos para os componentes utilizando Jest ou outra ferramenta de teste de sua escolha.
-
-### 4. Documentação:
-
-- Documentar o projeto e o código, explicando as escolhas de design e arquitetura.
-
-## Entrega
-
-- O código deve ser submetido através de um repositório Git (por exemplo, GitHub, GitLab).
-
-- Incluir instruções de instalação e execução no README do projeto.
-
-## Critérios de Avaliação
-
-- Completo cumprimento dos requisitos funcionais.
-
-- Qualidade e organização do código.
-
-- Eficiência das soluções implementadas.
-
-- Documentação clara e detalhada.
-
+```sh
+npm run lint
+```

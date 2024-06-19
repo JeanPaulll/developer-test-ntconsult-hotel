@@ -6,7 +6,7 @@
         <a
           href="../assets/extra-images/instagram-img01.jpg"
           data-rel="prettyPhoto"
-          ><i class="fa fa-instagram" aria-hidden="true"></i
+        ><i class="fa fa-instagram" aria-hidden="true"></i
         ></a>
       </figure>
     </div>
@@ -16,7 +16,7 @@
         <a
           href="../assets/extra-images/instagram-img02.jpg"
           data-rel="prettyPhoto"
-          ><i class="fa fa-instagram" aria-hidden="true"></i
+        ><i class="fa fa-instagram" aria-hidden="true"></i
         ></a>
       </figure>
     </div>
@@ -26,7 +26,7 @@
         <a
           href="../assets/extra-images/instagram-img03.jpg"
           data-rel="prettyPhoto"
-          ><i class="fa fa-instagram" aria-hidden="true"></i
+        ><i class="fa fa-instagram" aria-hidden="true"></i
         ></a>
       </figure>
     </div>
@@ -36,7 +36,7 @@
         <a
           href="../assets/extra-images/instagram-img04.jpg"
           data-rel="prettyPhoto"
-          ><i class="fa fa-instagram" aria-hidden="true"></i
+        ><i class="fa fa-instagram" aria-hidden="true"></i
         ></a>
       </figure>
     </div>
@@ -46,7 +46,7 @@
         <a
           href="../assets/extra-images/instagram-img05.jpg"
           data-rel="prettyPhoto"
-          ><i class="fa fa-instagram" aria-hidden="true"></i
+        ><i class="fa fa-instagram" aria-hidden="true"></i
         ></a>
       </figure>
     </div>
@@ -56,7 +56,7 @@
         <a
           href="../assets/extra-images/instagram-img06.jpg"
           data-rel="prettyPhoto"
-          ><i class="fa fa-instagram" aria-hidden="true"></i
+        ><i class="fa fa-instagram" aria-hidden="true"></i
         ></a>
       </figure>
     </div>
@@ -66,7 +66,7 @@
         <a
           href="../assets/extra-images/instagram-img07.jpg"
           data-rel="prettyPhoto"
-          ><i class="fa fa-instagram" aria-hidden="true"></i
+        ><i class="fa fa-instagram" aria-hidden="true"></i
         ></a>
       </figure>
     </div>
@@ -76,7 +76,7 @@
         <a
           href="../assets/extra-images/instagram-img08.jpg"
           data-rel="prettyPhoto"
-          ><i class="fa fa-instagram" aria-hidden="true"></i
+        ><i class="fa fa-instagram" aria-hidden="true"></i
         ></a>
       </figure>
     </div>
@@ -86,7 +86,7 @@
         <a
           href="../assets/extra-images/instagram-img09.jpg"
           data-rel="prettyPhoto"
-          ><i class="fa fa-instagram" aria-hidden="true"></i
+        ><i class="fa fa-instagram" aria-hidden="true"></i
         ></a>
       </figure>
     </div>
@@ -96,7 +96,7 @@
         <a
           href="../assets/extra-images/instagram-img10.jpg"
           data-rel="prettyPhoto"
-          ><i class="fa fa-instagram" aria-hidden="true"></i
+        ><i class="fa fa-instagram" aria-hidden="true"></i
         ></a>
       </figure>
     </div>
@@ -106,7 +106,7 @@
         <a
           href="../assets/extra-images/instagram-img11.jpg"
           data-rel="prettyPhoto"
-          ><i class="fa fa-instagram" aria-hidden="true"></i
+        ><i class="fa fa-instagram" aria-hidden="true"></i
         ></a>
       </figure>
     </div>
@@ -116,7 +116,7 @@
         <a
           href="../assets/extra-images/instagram-img12.jpg"
           data-rel="prettyPhoto"
-          ><i class="fa fa-instagram" aria-hidden="true"></i
+        ><i class="fa fa-instagram" aria-hidden="true"></i
         ></a>
       </figure>
     </div>
@@ -126,7 +126,7 @@
         <a
           href="../assets/extra-images/instagram-img13.jpg"
           data-rel="prettyPhoto"
-          ><i class="fa fa-instagram" aria-hidden="true"></i
+        ><i class="fa fa-instagram" aria-hidden="true"></i
         ></a>
       </figure>
     </div>
@@ -136,7 +136,7 @@
         <a
           href="../assets/extra-images/instagram-img14.jpg"
           data-rel="prettyPhoto"
-          ><i class="fa fa-instagram" aria-hidden="true"></i
+        ><i class="fa fa-instagram" aria-hidden="true"></i
         ></a>
       </figure>
     </div>
@@ -144,20 +144,16 @@
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-import TripCard from '@/components/TripCardComponent.vue';
-import { Slider } from '@/models/Slider.ts';
+import { Component, Prop, Vue } from 'vue-facing-decorator'
+import TripCard from '@/components/TripCardComponent.vue'
+import type { Slider } from '@/models/Slider'
 
-@Options({
-  components: { TripCard },
-  props: {
-    slides: {
-      type: Array as () => Slider[],
-      required: false,
-    },
-  },
+@Component({
+  components: { TripCard }
 })
-export default class SliderComponent extends Vue {}
+export default class SliderComponent extends Vue {
+  @Prop({ type: Array, required: false }) slides!: Slider[]
+}
 </script>
 
 <style scoped></style>

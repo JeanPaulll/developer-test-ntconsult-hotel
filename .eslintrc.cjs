@@ -1,36 +1,26 @@
+/* eslint-env node */
+require('@rushstack/eslint-patch/modern-module-resolution')
+
 module.exports = {
   root: true,
-  env: {
-    node: true,
-    browser: true,
-    es2021: true,
-  },
-  extends: [
-    'eslint:recommended',
+  'extends': [
     'plugin:vue/vue3-essential',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
+    'eslint:recommended',
+    '@vue/eslint-config-typescript',
+    '@vue/eslint-config-prettier/skip-formatting'
   ],
-  parser: 'vue-eslint-parser',
-  parserOptions: {
-    ecmaVersion: 2021,
-    sourceType: 'module',
-    parser: '@typescript-eslint/parser',
-    extraFileExtensions: ['.vue'],
-  },
-  rules: {
-    'vue/multi-word-component-names': 'off',
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
-    'prettier/prettier': 'error',
-  },
   overrides: [
     {
-      files: ['*.vue'],
-      rules: {
-        'no-undef': 'off',
-      },
-    },
+      files: [
+        'cypress/e2e/**/*.{cy,spec}.{js,ts,jsx,tsx}',
+        'cypress/support/**/*.{js,ts,jsx,tsx}'
+      ],
+      'extends': [
+        'plugin:cypress/recommended'
+      ]
+    }
   ],
-};
+  parserOptions: {
+    ecmaVersion: 'latest'
+  }
+}

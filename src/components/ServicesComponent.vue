@@ -3,7 +3,6 @@
     <div class="container">
       <div class="row">
         <div class="col-md-4 col-sm-6 col-xs-12">
-          <!--Travel services column-->
           <div class="travel-service-column">
             <div class="intro">
               <div class="items-wrapper">
@@ -46,7 +45,6 @@
           </div>
         </div>
         <div class="col-md-4 col-sm-6 col-xs-12">
-          <!--Travel services column-->
           <div class="travel-service-column">
             <div class="intro">
               <div class="items-wrapper">
@@ -85,7 +83,6 @@
           </div>
         </div>
         <div class="col-md-4 col-sm-6 col-xs-12">
-          <!--Travel services column-->
           <div class="travel-service-column">
             <div class="intro">
               <div class="items-wrapper">
@@ -186,23 +183,12 @@
 </template>
 
 <script lang="ts">
-import { Vue, Options } from 'vue-class-component';
+import { Component, Prop, Vue } from 'vue-facing-decorator'
 
-@Options({
-  props: {
-    title: {
-      type: String,
-      default: 'FORMULÁRIO DE RESERVA DE HOTEL',
-    },
-  },
-})
-export default class ServicesComponent extends Vue {}
+@Component({})
+export default class ServicesComponent extends Vue {
+  @Prop({ type: String, required: false }) title!: String
+}
 </script>
 
-<style scoped>
-header {
-  background-color: #f8f8f8;
-  padding: 20px;
-  text-align: center;
-}
-</style>
+<style scoped></style>

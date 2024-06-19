@@ -1,21 +1,15 @@
 <template>
   <header>
-    <h1>Titulo: {{ title }}</h1>
+    <h1>Titulo: </h1>
   </header>
 </template>
 
 <script lang="ts">
-import { Vue, Options } from 'vue-class-component';
+import { Vue, Component, toNative } from 'vue-facing-decorator'
 
-@Options({
-  props: {
-    title: {
-      type: String,
-      default: 'Default Title',
-    },
-  },
-})
-export default class HeaderComponent extends Vue {}
+@Component({})
+class HeaderComponent extends Vue {}
+export default toNative(HeaderComponent)
 </script>
 
 <style scoped>

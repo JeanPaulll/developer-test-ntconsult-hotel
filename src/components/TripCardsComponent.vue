@@ -14,19 +14,16 @@
   </section>
 </template>
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-import { Trip } from '@/models/Trip.ts';
-import TripCard from '@/components/TripCardComponent.vue';
+import { Component, Prop, Vue } from 'vue-facing-decorator'
 
-@Options({
-  components: { TripCard },
-  props: {
-    trips: {
-      type: Array as () => Trip[],
-      required: true,
-    },
-  },
+import TripCard from '@/components/TripCardComponent.vue'
+import type { Trip } from '@/models/Trip'
+
+@Component({
+  components: { TripCard }
 })
-export default class TripCards extends Vue {}
+export default class TripCards extends Vue {
+  @Prop({ required: true }) trips!: Trip[]
+}
 </script>
 <style scoped></style>

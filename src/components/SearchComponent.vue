@@ -97,35 +97,34 @@
 </template>
 
 <script lang="ts">
-import { Vue, Options } from 'vue-class-component';
-import { Prop } from 'vue-property-decorator';
+import { Component, Prop, Vue } from 'vue-facing-decorator'
 
-@Options({})
+@Component({})
 export default class SearchComponent extends Vue {
-  @Prop({ default: 'FORMULÁRIO DE RESERVA DE HOTEL' }) title!: string;
+  @Prop({ default: 'FORMULÁRIO DE RESERVA DE HOTEL' }) title!: string
 
   // Atributos com data-binding
-  destination: string = '';
-  checkInDate: string = '';
-  checkOutDate: string = '';
-  rooms: number = 1;
-  guests: number = 1;
+  public destination: string = ''
+  public checkInDate: string = ''
+  public checkOutDate: string = ''
+  public rooms: number = 1
+  public guests: number = 1
 
   handleSubmit() {
     // Validação básica
     if (!this.destination) {
-      alert('Por favor, insira um destino.');
-      return;
+      alert('Por favor, insira um destino.')
+      return
     }
 
     if (!this.checkInDate || !this.checkOutDate) {
-      alert('Por favor, insira as datas de check-in e check-out.');
-      return;
+      alert('Por favor, insira as datas de check-in e check-out.')
+      return
     }
 
     if (new Date(this.checkInDate) > new Date(this.checkOutDate)) {
-      alert('A data de check-in deve ser anterior à data de check-out.');
-      return;
+      alert('A data de check-in deve ser anterior à data de check-out.')
+      return
     }
 
     // Submeter dados
@@ -134,10 +133,9 @@ export default class SearchComponent extends Vue {
       checkInDate: this.checkInDate,
       checkOutDate: this.checkOutDate,
       rooms: this.rooms,
-      guests: this.guests,
-    };
-    console.log('Dados do formulário:', searchData);
-    // Aqui você pode enviar os dados para uma API ou outro processamento
+      guests: this.guests
+    }
+    console.log('Dados do formulário:', searchData)
   }
 }
 </script>
@@ -149,25 +147,30 @@ export default class SearchComponent extends Vue {
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .title-icon {
   font-size: 18px;
   margin-bottom: 20px;
 }
+
 .kode_felid {
   margin-bottom: 15px;
 }
+
 .ralative-icon input[type='date'] {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+
 .select {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+
 .submit-form button {
   width: 100%;
   padding: 10px;
@@ -177,6 +180,7 @@ export default class SearchComponent extends Vue {
   color: white;
   cursor: pointer;
 }
+
 .submit-form button:hover {
   background-color: #0056b3;
 }

@@ -3,8 +3,8 @@
     <div class="kf_column_trip hover-effect-01">
       <div class="kf_column-figure">
         <figure>
-          <a href="../assets/extra-images/blog-img1.jpg" data-rel="prettyPhoto">
-            <img src="../assets/extra-images/blog-img1.jpg" alt="Hotel A" />
+          <a data-rel="prettyPhoto" href="../assets/extra-images/blog-img1.jpg">
+            <img alt="Hotel A" src="../assets/extra-images/blog-img1.jpg" />
           </a>
           <div class="hover-content-01"></div>
           <figcaption v-if="trip?.checkInDate && trip?.checkOutDate">
@@ -44,47 +44,43 @@
         </ul>
       </div>
       <ul class="booking-bottom">
-        <li><a href="#" class="btn-blog"> Reserve Agora </a></li>
+        <li><a class="btn-blog" href="#"> Reserve Agora </a></li>
       </ul>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Vue, Options } from 'vue-class-component';
-import { Trip } from '@/models/Trip.ts';
+import { Component, Prop, Vue } from 'vue-facing-decorator'
+import type { Trip } from '@/models/Trip'
 
-@Options({
-  props: {
-    trip: {
-      type: Object as () => Trip,
-      required: true,
-    },
-  },
-})
+
+@Component({})
 export default class TripCard extends Vue {
+  @Prop({ required: true }) trip!: Trip
+
   public formatDate(date: string): string {
-    return new Date(date).toLocaleDateString('pt-BR');
+    return new Date(date).toLocaleDateString('pt-BR')
   }
 
   public formatCurrency(value: number): string {
     return new Intl.NumberFormat('pt-BR', {
       style: 'currency',
-      currency: 'BRL',
-    }).format(value);
+      currency: 'BRL'
+    }).format(value)
   }
 
   public calculateTripDuration(
     checkInDate: string,
-    checkOutDate: string,
+    checkOutDate: string
   ): string {
-    const checkIn = new Date(checkInDate);
-    const checkOut = new Date(checkOutDate);
-    const durationInMilliseconds = checkOut.getTime() - checkIn.getTime();
-    const durationInDays = durationInMilliseconds / (1000 * 3600 * 24);
-    const nights = Math.floor(durationInDays); // Noites são dias completos
-    const days = nights + 1; // Dias são noites + 1
-    return `${days} dia${days > 1 ? 's' : ''} e ${nights} noite${nights > 1 ? 's' : ''}`;
+    const checkIn = new Date(checkInDate)
+    const checkOut = new Date(checkOutDate)
+    const durationInMilliseconds = checkOut.getTime() - checkIn.getTime()
+    const durationInDays = durationInMilliseconds / (1000 * 3600 * 24)
+    const nights = Math.floor(durationInDays) // Noites são dias completos
+    const days = nights + 1 // Dias são noites + 1
+    return `${days} dia${days > 1 ? 's' : ''} e ${nights} noite${nights > 1 ? 's' : ''}`
   }
 }
 </script>
@@ -94,6 +90,7 @@ export default class TripCard extends Vue {
   border-radius: unset;
   width: 100px;
 }
+
 .booking-bottom > li:first-child {
   width: 100%;
 }

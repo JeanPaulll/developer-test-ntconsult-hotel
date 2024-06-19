@@ -12,17 +12,17 @@
 </template>
 
 <script lang="ts">
-import { Vue, Options } from 'vue-class-component';
-import HeaderComponent from '../components/HeaderComponent.vue';
-import SearchComponent from '@/components/SearchComponent.vue';
-import ServicesComponent from '@/components/ServicesComponent.vue';
-import TripCard from '@/components/TripCardComponent.vue';
-import TripCards from '@/components/TripCardsComponent.vue';
-import BannerComponent from '@/components/BannerComponent.vue';
-import { useTripStore } from '@/store/tripStore.ts';
-import SliderComponent from '@/components/SliderComponent.vue';
+import { Component, Vue } from 'vue-facing-decorator'
+import HeaderComponent from '@/components/HeaderComponent.vue'
+import SearchComponent from '@/components/SearchComponent.vue'
+import ServicesComponent from '@/components/ServicesComponent.vue'
+import TripCard from '@/components/TripCardComponent.vue'
+import TripCards from '@/components/TripCardsComponent.vue'
+import BannerComponent from '@/components/BannerComponent.vue'
+import SliderComponent from '@/components/SliderComponent.vue'
+import { useTripStore } from '@/stores/tripStore'
 
-@Options({
+@Component({
   components: {
     SliderComponent,
     BannerComponent,
@@ -31,7 +31,7 @@ import SliderComponent from '@/components/SliderComponent.vue';
     ServicesComponent,
     SearchComponent,
     HeaderComponent,
-  },
+  }
 })
 export default class Home extends Vue {
   private tripStore = useTripStore();
@@ -44,6 +44,7 @@ export default class Home extends Vue {
     this.tripStore.loadTrips();
   }
 }
+
 </script>
 
 <style scoped></style>

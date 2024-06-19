@@ -1,17 +1,16 @@
-import { createApp } from 'vue';
-import App from './App.vue';
-import vuetify from './plugins/vuetify';
-import { createPinia } from 'pinia';
-import router from './router';
+import './assets/main.css'
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+import vuetify from './plugins/vuetify'
 
-const app = createApp(App);
+import App from './App.vue'
+import router from './router'
 
-const pinia = createPinia();
-app.use(pinia);
-app.use(vuetify);
-app.use(router);
+const app = createApp(App)
 
-app.mount('#app');
-import('./assets/js/effects/demo3.js').then((module) => {
-  console.log(':: Effects ok ::', module);
-});
+app.use(createPinia())
+app.use(vuetify)
+app.use(router)
+app.mount('#app')
+
+
