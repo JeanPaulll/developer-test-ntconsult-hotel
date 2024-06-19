@@ -1,13 +1,16 @@
 @import url(https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=devanagari,latin-ext);
+
 section {
   padding: 80px 0px 50px;
   float: left;
   width: 100%;
 }
+
 .widget {
   float: left;
   width: 100%;
 }
+
 * {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -15,6 +18,7 @@ section {
   -o-box-sizing: border-box;
   -ms-box-sizing: border-box;
 }
+
 body {
   color: #39352f;
   font-family: 'Poppins', sans-serif;
@@ -72,11 +76,14 @@ h6 a {
   color: #39352f;
   font-size: 100%;
 }
+
 p {
 }
+
 p a {
   color: #999999;
 }
+
 /* Peragraph Typo */
 
 a {
@@ -91,29 +98,36 @@ a:active {
   text-decoration: none;
   color: #fff;
 }
+
 ul {
   margin: 0px;
   padding: 0px;
 }
+
 li {
   list-style: none;
 }
+
 ul ul {
   margin: 0px;
   padding: 0px;
 }
+
 ol {
   float: none;
   list-style: decimal;
   padding-left: 15px;
 }
+
 ol ol {
   margin-left: 20px;
 }
+
 ol li {
   list-style: decimal;
   width: 100%;
 }
+
 figure {
   float: left;
   width: 100%;
@@ -126,22 +140,27 @@ figure {
   font-size: 0;
   line-height: 0;
 }
+
 figure img {
   float: left;
   width: 100%;
 }
+
 img {
   max-width: 100%;
   width: 100%;
 }
+
 strong {
   color: #262626;
 }
+
 iframe {
   border: none;
   float: left;
   width: 100%;
 }
+
 /* Form Input Typo */
 select {
   border: 1px solid #cccccc;
@@ -155,6 +174,7 @@ select {
   vertical-align: middle;
   width: 100%;
 }
+
 label {
   color: #666666;
   display: block;
@@ -162,10 +182,12 @@ label {
   font-size: 15px;
   margin-bottom: 0px;
 }
+
 button {
   border: none;
   cursor: pointer;
 }
+
 textarea,
 input[type='text'],
 input[type='password'],
@@ -196,27 +218,33 @@ input[type='color'],
   vertical-align: middle;
   font-family: 'Poppins', sans-serif;
 }
+
 input:focus {
 }
+
 form p {
   float: left;
   position: relative;
   width: 100%;
 }
+
 form p span i {
   color: #5e5e5e;
   left: 16px;
   position: absolute;
   top: 13px;
 }
+
 table {
   background-color: transparent;
   max-width: 100%;
   width: 100%;
 }
+
 th {
   text-align: left;
 }
+
 table > thead > tr > th,
 table > tbody > tr > th,
 table > tfoot > tr > th,
@@ -228,9 +256,11 @@ table > tfoot > tr > td {
   padding-left: 7px;
   vertical-align: top;
 }
+
 table thead tr th {
   border-top: 1px solid #cccccc;
 }
+
 .table > caption + thead > tr:first-child > th,
 .table > colgroup + thead > tr:first-child > th,
 .table > thead:first-child > tr:first-child > th,
@@ -239,10 +269,12 @@ table thead tr th {
 .table > thead:first-child > tr:first-child > td {
   border-top: 1px solid #cccccc;
 }
+
 table > thead > tr > th {
   border-bottom: 2px solid #cccccc;
   vertical-align: bottom;
 }
+
 table > caption + thead > tr:first-child > th,
 table > colgroup + thead > tr:first-child > th,
 table > thead:first-child > tr:first-child > th,
@@ -251,9 +283,11 @@ table > colgroup + thead > tr:first-child > td,
 table > thead:first-child > tr:first-child > td {
   border-bottom: 0;
 }
+
 table > tbody + tbody {
   border-top: 2px solid #cccccc;
 }
+
 .table > thead > tr > th,
 .table > tbody > tr > th,
 .table > tfoot > tr > th,
@@ -262,27 +296,34 @@ table > tbody + tbody {
 .table > tfoot > tr > td {
   padding: 12px 16px;
 }
+
 p ins {
   color: #cccccc;
 }
+
 dl dd {
   margin-left: 20px;
 }
+
 address {
   font-style: italic;
 }
+
 ::-webkit-input-placeholder {
   color: #666666;
   opacity: 1;
 }
+
 :-moz-placeholder {
   color: #666666;
   opacity: 1;
 }
+
 ::-moz-placeholder {
   color: #666666;
   opacity: 1;
 }
+
 :-ms-input-placeholder {
   color: #666666;
   opacity: 1;
@@ -317,8 +358,7 @@ address {
   font-family: 'weather';
   src: url('../fonts/artill_clean_icons-webfont.eot');
   src:
-    url('../fonts/artill_clean_icons-webfont.eot?#iefix')
-      format('embedded-opentype'),
+    url('../fonts/artill_clean_icons-webfont.eot?#iefix') format('embedded-opentype'),
     url('../fonts/artill_clean_icons-webfont.woff') format('woff'),
     url('../fonts/artill_clean_icons-webfont.ttf') format('truetype'),
     url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.svg#artill_clean_weather_iconsRg')
@@ -357,144 +397,191 @@ address {
 .icon-0:before {
   content: ':';
 }
+
 .icon-1:before {
   content: 'p';
 }
+
 .icon-2:before {
   content: 'S';
 }
+
 .icon-3:before {
   content: 'Q';
 }
+
 .icon-4:before {
   content: 'S';
 }
+
 .icon-5:before {
   content: 'W';
 }
+
 .icon-6:before {
   content: 'W';
 }
+
 .icon-7:before {
   content: 'W';
 }
+
 .icon-8:before {
   content: 'W';
 }
+
 .icon-9:before {
   content: 'I';
 }
+
 .icon-10:before {
   content: 'W';
 }
+
 .icon-11:before {
   content: 'I';
 }
+
 .icon-12:before {
   content: 'I';
 }
+
 .icon-13:before {
   content: 'I';
 }
+
 .icon-14:before {
   content: 'I';
 }
+
 .icon-15:before {
   content: 'W';
 }
+
 .icon-16:before {
   content: 'I';
 }
+
 .icon-17:before {
   content: 'W';
 }
+
 .icon-18:before {
   content: 'U';
 }
+
 .icon-19:before {
   content: 'Z';
 }
+
 .icon-20:before {
   content: 'Z';
 }
+
 .icon-21:before {
   content: 'Z';
 }
+
 .icon-22:before {
   content: 'Z';
 }
+
 .icon-23:before {
   content: 'Z';
 }
+
 .icon-24:before {
   content: 'E';
 }
+
 .icon-25:before {
   content: 'E';
 }
+
 .icon-26:before {
   content: '3';
 }
+
 .icon-27:before {
   content: 'a';
 }
+
 .icon-28:before {
   content: 'A';
 }
+
 .icon-29:before {
   content: 'a';
 }
+
 .icon-30:before {
   content: 'A';
 }
+
 .icon-31:before {
   content: '6';
 }
+
 .icon-32:before {
   content: '1';
 }
+
 .icon-33:before {
   content: '6';
 }
+
 .icon-34:before {
   content: '1';
 }
+
 .icon-35:before {
   content: 'W';
 }
+
 .icon-36:before {
   content: '1';
 }
+
 .icon-37:before {
   content: 'S';
 }
+
 .icon-38:before {
   content: 'S';
 }
+
 .icon-39:before {
   content: 'S';
 }
+
 .icon-40:before {
   content: 'M';
 }
+
 .icon-41:before {
   content: 'W';
 }
+
 .icon-42:before {
   content: 'I';
 }
+
 .icon-43:before {
   content: 'W';
 }
+
 .icon-44:before {
   content: 'a';
 }
+
 .icon-45:before {
   content: 'S';
 }
+
 .icon-46:before {
   content: 'U';
 }
+
 .icon-47:before {
   content: 'S';
 }
@@ -520,6 +607,7 @@ address {
 #weather li {
   display: inline-block;
 }
+
 #weather li:first-child,
 #weather li:last-child {
   display: none;
@@ -529,8 +617,10 @@ address {
   margin: 0 0px;
   font-size: 20px;
 }
+
 .kode_tour_weather {
 }
+
 #weather {
   font-family: 'Poppins', sans-serif;
 }

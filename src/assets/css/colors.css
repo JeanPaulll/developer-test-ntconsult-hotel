@@ -129,9 +129,7 @@ body.mode-search .control-search .btn,
 .tour-trip-visit .play-tour a:hover,
 .zoom-in a:hover,
 .overlay-blue:before,
-.kf_testimonial
-  .slick-slide.slick-current.slick-active.slick-center
-  .testimonial-items,
+.kf_testimonial .slick-slide.slick-current.slick-active.slick-center .testimonial-items,
 .kode_social_icons_2 li:hover a,
 .city-blog figure:before,
 .blog-1:hover figure:before,
@@ -246,9 +244,7 @@ ul.kf_filtrable_pinter li.active a:before {
 			CUSTOM BORDER COLORS
 	==============================================
 */
-.kf_testimonial
-  .slick-slide.slick-current.slick-active.slick-center
-  .testimonial-items:before {
+.kf_testimonial .slick-slide.slick-current.slick-active.slick-center .testimonial-items:before {
   border-color: transparent #1276bc transparent transparent;
 }
 
@@ -259,6 +255,7 @@ ul.kf_filtrable_pinter li.active a:before {
 .blue-bg.flg-1:before {
   border-color: #1999d9 transparent transparent transparent;
 }
+
 .orange-bg.flg-1:before {
   border-color: #f5600c transparent transparent transparent;
 }
@@ -266,18 +263,23 @@ ul.kf_filtrable_pinter li.active a:before {
 .breadcrumb:before {
   border-color: transparent #f5600c transparent transparent;
 }
+
 .breadcrumb:after {
   border-color: #f5600c transparent transparent transparent;
 }
+
 .picture-effect:before {
   border-color: transparent #1276bc transparent transparent;
 }
+
 .black-bk {
   background: #4d4d4d;
 }
+
 .white-bg {
   background: #f7f7f7;
 }
+
 .orange-listing .flag-top01:before {
   border-color: transparent transparent #aa0c03;
 }
@@ -456,6 +458,7 @@ ul.children,
   -o-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
 }
+
 body.mode-search .kf-search-menu button {
   -webkit-transition: all 1s ease-in-out;
   -moz-transition: all 1s ease-in-out;
@@ -463,6 +466,7 @@ body.mode-search .kf-search-menu button {
   -o-transition: all 1s ease-in-out;
   transition: all 1s ease-in-out;
 }
+
 .ck-box {
   -webkit-transition: all 0.4s ease-in-out 0.12s;
   -moz-transition: all 0.4s ease-in-out 0.12s;

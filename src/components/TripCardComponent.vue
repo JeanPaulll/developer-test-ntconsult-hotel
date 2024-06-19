@@ -12,9 +12,7 @@
               <li>
                 <span class="fa fa-clock-o"></span>
                 <a href="#">
-                  {{
-                    calculateTripDuration(trip?.checkInDate, trip?.checkOutDate)
-                  }}
+                  {{ calculateTripDuration(trip?.checkInDate, trip?.checkOutDate) }}
                 </a>
               </li>
             </ul>
@@ -54,7 +52,6 @@
 import { Component, Prop, Vue } from 'vue-facing-decorator'
 import type { Trip } from '@/models/Trip'
 
-
 @Component({})
 export default class TripCard extends Vue {
   @Prop({ required: true }) trip!: Trip
@@ -70,10 +67,7 @@ export default class TripCard extends Vue {
     }).format(value)
   }
 
-  public calculateTripDuration(
-    checkInDate: string,
-    checkOutDate: string
-  ): string {
+  public calculateTripDuration(checkInDate: string, checkOutDate: string): string {
     const checkIn = new Date(checkInDate)
     const checkOut = new Date(checkOutDate)
     const durationInMilliseconds = checkOut.getTime() - checkIn.getTime()

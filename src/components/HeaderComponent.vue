@@ -1,14 +1,15 @@
 <template>
   <header>
-    <h1>Titulo: </h1>
+    <h1>Titulo:</h1>
   </header>
 </template>
 
 <script lang="ts">
-import { Vue, Component, toNative } from 'vue-facing-decorator'
+import { Component, toNative, Vue } from 'vue-facing-decorator'
 
 @Component({})
 class HeaderComponent extends Vue {}
+
 export default toNative(HeaderComponent)
 </script>
 

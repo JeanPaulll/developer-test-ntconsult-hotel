@@ -3,7 +3,7 @@
     <div class="container">
       <div class="kf_tour_blog">
         <div class="content-gallery tab-content">
-          <div class="tab-pane fade in active" role="tabpanel" id="grid-tab-1">
+          <div id="grid-tab-1" class="tab-pane fade in active" role="tabpanel">
             <div class="row">
               <TripCard v-for="trip in trips" :key="trip.id" :trip="trip" />
             </div>

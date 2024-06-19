@@ -5,7 +5,7 @@
  * @author Ubilabs http://ubilabs.net, 2016
  * @license MIT License <http://www.opensource.org/licenses/mit-license.php>
  */
-(function ($, window, document, undefined) {
+;(function ($, window, document, undefined) {
   var defaults = {
     bounds: true,
     strictBounds: false,
@@ -22,8 +22,8 @@
     types: ['geocode'],
     blur: false,
     geocodeAfterResult: false,
-    restoreValueAfterBlur: false,
-  };
+    restoreValueAfterBlur: false
+  }
   var componentTypes = (
     'street_address route intersection political ' +
     'country administrative_area_level_1 administrative_area_level_2 ' +
@@ -32,314 +32,280 @@
     'park point_of_interest post_box street_number floor room ' +
     'lat lng viewport location ' +
     'formatted_address location_type bounds'
-  ).split(' ');
+  ).split(' ')
   var placesDetails = (
     'id place_id url website vicinity reference name rating ' +
     'international_phone_number icon formatted_phone_number'
-  ).split(' ');
+  ).split(' ')
+
   function GeoComplete(input, options) {
-    this.options = $.extend(true, {}, defaults, options);
+    this.options = $.extend(true, {}, defaults, options)
     if (options && options.types) {
-      this.options.types = options.types;
+      this.options.types = options.types
     }
-    this.input = input;
-    this.$input = $(input);
-    this._defaults = defaults;
-    this._name = 'geocomplete';
-    this.init();
+    this.input = input
+    this.$input = $(input)
+    this._defaults = defaults
+    this._name = 'geocomplete'
+    this.init()
   }
+
   $.extend(GeoComplete.prototype, {
     init: function () {
-      this.initMap();
-      this.initMarker();
-      this.initGeocoder();
-      this.initDetails();
-      this.initLocation();
+      this.initMap()
+      this.initMarker()
+      this.initGeocoder()
+      this.initDetails()
+      this.initLocation()
     },
     initMap: function () {
       if (!this.options.map) {
-        return;
+        return
       }
       if (typeof this.options.map.setCenter == 'function') {
-        this.map = this.options.map;
-        return;
+        this.map = this.options.map
+        return
       }
-      this.map = new google.maps.Map(
-        $(this.options.map)[0],
-        this.options.mapOptions,
-      );
-      google.maps.event.addListener(
-        this.map,
-        'click',
-        $.proxy(this.mapClicked, this),
-      );
-      google.maps.event.addListener(
-        this.map,
-        'dragend',
-        $.proxy(this.mapDragged, this),
-      );
-      google.maps.event.addListener(
-        this.map,
-        'idle',
-        $.proxy(this.mapIdle, this),
-      );
-      google.maps.event.addListener(
-        this.map,
-        'zoom_changed',
-        $.proxy(this.mapZoomed, this),
-      );
+      this.map = new google.maps.Map($(this.options.map)[0], this.options.mapOptions)
+      google.maps.event.addListener(this.map, 'click', $.proxy(this.mapClicked, this))
+      google.maps.event.addListener(this.map, 'dragend', $.proxy(this.mapDragged, this))
+      google.maps.event.addListener(this.map, 'idle', $.proxy(this.mapIdle, this))
+      google.maps.event.addListener(this.map, 'zoom_changed', $.proxy(this.mapZoomed, this))
     },
     initMarker: function () {
       if (!this.map) {
-        return;
+        return
       }
-      var options = $.extend(this.options.markerOptions, { map: this.map });
+      var options = $.extend(this.options.markerOptions, { map: this.map })
       if (options.disabled) {
-        return;
+        return
       }
-      this.marker = new google.maps.Marker(options);
-      google.maps.event.addListener(
-        this.marker,
-        'dragend',
-        $.proxy(this.markerDragged, this),
-      );
+      this.marker = new google.maps.Marker(options)
+      google.maps.event.addListener(this.marker, 'dragend', $.proxy(this.markerDragged, this))
     },
     initGeocoder: function () {
-      var selected = false;
+      var selected = false
       var options = {
         types: this.options.types,
         bounds: this.options.bounds === true ? null : this.options.bounds,
         componentRestrictions: this.options.componentRestrictions,
-        strictBounds: this.options.strictBounds,
-      };
-      if (this.options.country) {
-        options.componentRestrictions = { country: this.options.country };
+        strictBounds: this.options.strictBounds
       }
-      this.autocomplete = new google.maps.places.Autocomplete(
-        this.input,
-        options,
-      );
-      this.geocoder = new google.maps.Geocoder();
+      if (this.options.country) {
+        options.componentRestrictions = { country: this.options.country }
+      }
+      this.autocomplete = new google.maps.places.Autocomplete(this.input, options)
+      this.geocoder = new google.maps.Geocoder()
       if (this.map && this.options.bounds === true) {
-        this.autocomplete.bindTo('bounds', this.map);
+        this.autocomplete.bindTo('bounds', this.map)
       }
       google.maps.event.addListener(
         this.autocomplete,
         'place_changed',
-        $.proxy(this.placeChanged, this),
-      );
+        $.proxy(this.placeChanged, this)
+      )
       this.$input.on('keypress.' + this._name, function (event) {
         if (event.keyCode === 13) {
-          return false;
+          return false
         }
-      });
+      })
       if (this.options.geocodeAfterResult === true) {
         this.$input.bind(
           'keypress.' + this._name,
           $.proxy(function () {
             if (event.keyCode != 9 && this.selected === true) {
-              this.selected = false;
+              this.selected = false
             }
-          }, this),
-        );
+          }, this)
+        )
       }
       this.$input.bind(
         'geocode.' + this._name,
         $.proxy(function () {
-          this.find();
-        }, this),
-      );
+          this.find()
+        }, this)
+      )
       this.$input.bind(
         'geocode:result.' + this._name,
         $.proxy(function () {
-          this.lastInputVal = this.$input.val();
-        }, this),
-      );
+          this.lastInputVal = this.$input.val()
+        }, this)
+      )
       if (this.options.blur === true) {
         this.$input.on(
           'blur.' + this._name,
           $.proxy(function () {
-            if (
-              this.options.geocodeAfterResult === true &&
-              this.selected === true
-            ) {
-              return;
+            if (this.options.geocodeAfterResult === true && this.selected === true) {
+              return
             }
-            if (
-              this.options.restoreValueAfterBlur === true &&
-              this.selected === true
-            ) {
-              setTimeout($.proxy(this.restoreLastValue, this), 0);
+            if (this.options.restoreValueAfterBlur === true && this.selected === true) {
+              setTimeout($.proxy(this.restoreLastValue, this), 0)
             } else {
-              this.find();
+              this.find()
             }
-          }, this),
-        );
+          }, this)
+        )
       }
     },
     initDetails: function () {
       if (!this.options.details) {
-        return;
+        return
       }
       if (this.options.detailsScope) {
-        var $details = $(this.input)
-          .parents(this.options.detailsScope)
-          .find(this.options.details);
+        var $details = $(this.input).parents(this.options.detailsScope).find(this.options.details)
       } else {
-        var $details = $(this.options.details);
+        var $details = $(this.options.details)
       }
       var attribute = this.options.detailsAttribute,
-        details = {};
+        details = {}
+
       function setDetail(value) {
-        details[value] = $details.find('[' + attribute + '=' + value + ']');
+        details[value] = $details.find('[' + attribute + '=' + value + ']')
       }
+
       $.each(componentTypes, function (index, key) {
-        setDetail(key);
-        setDetail(key + '_short');
-      });
+        setDetail(key)
+        setDetail(key + '_short')
+      })
       $.each(placesDetails, function (index, key) {
-        setDetail(key);
-      });
-      this.$details = $details;
-      this.details = details;
+        setDetail(key)
+      })
+      this.$details = $details
+      this.details = details
     },
     initLocation: function () {
       var location = this.options.location,
-        latLng;
+        latLng
       if (!location) {
-        return;
+        return
       }
       if (typeof location == 'string') {
-        this.find(location);
-        return;
+        this.find(location)
+        return
       }
       if (location instanceof Array) {
-        latLng = new google.maps.LatLng(location[0], location[1]);
+        latLng = new google.maps.LatLng(location[0], location[1])
       }
       if (location instanceof google.maps.LatLng) {
-        latLng = location;
+        latLng = location
       }
       if (latLng) {
         if (this.map) {
-          this.map.setCenter(latLng);
+          this.map.setCenter(latLng)
         }
         if (this.marker) {
-          this.marker.setPosition(latLng);
+          this.marker.setPosition(latLng)
         }
       }
     },
     destroy: function () {
       if (this.map) {
-        google.maps.event.clearInstanceListeners(this.map);
-        google.maps.event.clearInstanceListeners(this.marker);
+        google.maps.event.clearInstanceListeners(this.map)
+        google.maps.event.clearInstanceListeners(this.marker)
       }
-      this.autocomplete.unbindAll();
-      google.maps.event.clearInstanceListeners(this.autocomplete);
-      google.maps.event.clearInstanceListeners(this.input);
-      this.$input.removeData();
-      this.$input.off(this._name);
-      this.$input.unbind('.' + this._name);
+      this.autocomplete.unbindAll()
+      google.maps.event.clearInstanceListeners(this.autocomplete)
+      google.maps.event.clearInstanceListeners(this.input)
+      this.$input.removeData()
+      this.$input.off(this._name)
+      this.$input.unbind('.' + this._name)
     },
     find: function (address) {
-      this.geocode({ address: address || this.$input.val() });
+      this.geocode({ address: address || this.$input.val() })
     },
     geocode: function (request) {
       if (!request.address) {
-        return;
+        return
       }
       if (this.options.bounds && !request.bounds) {
         if (this.options.bounds === true) {
-          request.bounds = this.map && this.map.getBounds();
+          request.bounds = this.map && this.map.getBounds()
         } else {
-          request.bounds = this.options.bounds;
+          request.bounds = this.options.bounds
         }
       }
       if (this.options.country) {
-        request.region = this.options.country;
+        request.region = this.options.country
       }
-      this.geocoder.geocode(request, $.proxy(this.handleGeocode, this));
+      this.geocoder.geocode(request, $.proxy(this.handleGeocode, this))
     },
     selectFirstResult: function () {
-      var selected = '';
+      var selected = ''
       if ($('.pac-item-selected')[0]) {
-        selected = '-selected';
+        selected = '-selected'
       }
       var $span1 = $(
-        '.pac-container:visible .pac-item' +
-          selected +
-          ':first span:nth-child(2)',
-      ).text();
+        '.pac-container:visible .pac-item' + selected + ':first span:nth-child(2)'
+      ).text()
       var $span2 = $(
-        '.pac-container:visible .pac-item' +
-          selected +
-          ':first span:nth-child(3)',
-      ).text();
-      var firstResult = $span1;
+        '.pac-container:visible .pac-item' + selected + ':first span:nth-child(3)'
+      ).text()
+      var firstResult = $span1
       if ($span2) {
-        firstResult += ' - ' + $span2;
+        firstResult += ' - ' + $span2
       }
-      this.$input.val(firstResult);
-      return firstResult;
+      this.$input.val(firstResult)
+      return firstResult
     },
     restoreLastValue: function () {
       if (this.lastInputVal) {
-        this.$input.val(this.lastInputVal);
+        this.$input.val(this.lastInputVal)
       }
     },
     handleGeocode: function (results, status) {
       if (status === google.maps.GeocoderStatus.OK) {
-        var result = results[0];
-        this.$input.val(result.formatted_address);
-        this.update(result);
+        var result = results[0]
+        this.$input.val(result.formatted_address)
+        this.update(result)
         if (results.length > 1) {
-          this.trigger('geocode:multiple', results);
+          this.trigger('geocode:multiple', results)
         }
       } else {
-        this.trigger('geocode:error', status);
+        this.trigger('geocode:error', status)
       }
     },
     trigger: function (event, argument) {
-      this.$input.trigger(event, [argument]);
+      this.$input.trigger(event, [argument])
     },
     center: function (geometry) {
       if (geometry.viewport) {
-        this.map.fitBounds(geometry.viewport);
+        this.map.fitBounds(geometry.viewport)
         if (this.map.getZoom() > this.options.maxZoom) {
-          this.map.setZoom(this.options.maxZoom);
+          this.map.setZoom(this.options.maxZoom)
         }
       } else {
-        this.map.setZoom(this.options.maxZoom);
-        this.map.setCenter(geometry.location);
+        this.map.setZoom(this.options.maxZoom)
+        this.map.setCenter(geometry.location)
       }
       if (this.marker) {
-        this.marker.setPosition(geometry.location);
-        this.marker.setAnimation(this.options.markerOptions.animation);
+        this.marker.setPosition(geometry.location)
+        this.marker.setAnimation(this.options.markerOptions.animation)
       }
     },
     update: function (result) {
       if (this.map) {
-        this.center(result.geometry);
+        this.center(result.geometry)
       }
       if (this.$details) {
-        this.fillDetails(result);
+        this.fillDetails(result)
       }
-      this.trigger('geocode:result', result);
+      this.trigger('geocode:result', result)
     },
     fillDetails: function (result) {
       var data = {},
         geometry = result.geometry,
         viewport = geometry.viewport,
-        bounds = geometry.bounds;
+        bounds = geometry.bounds
       $.each(result.address_components, function (index, object) {
-        var name = object.types[0];
+        var name = object.types[0]
         $.each(object.types, function (index, name) {
-          data[name] = object.long_name;
-          data[name + '_short'] = object.short_name;
-        });
-      });
+          data[name] = object.long_name
+          data[name + '_short'] = object.short_name
+        })
+      })
       $.each(placesDetails, function (index, key) {
-        data[key] = result[key];
-      });
+        data[key] = result[key]
+      })
       $.extend(data, {
         formatted_address: result.formatted_address,
         location_type: geometry.location_type || 'PLACES',
@@ -347,85 +313,84 @@
         bounds: bounds,
         location: geometry.location,
         lat: geometry.location.lat(),
-        lng: geometry.location.lng(),
-      });
+        lng: geometry.location.lng()
+      })
       $.each(
         this.details,
         $.proxy(function (key, $detail) {
-          var value = data[key];
-          this.setDetail($detail, value);
-        }, this),
-      );
-      this.data = data;
+          var value = data[key]
+          this.setDetail($detail, value)
+        }, this)
+      )
+      this.data = data
     },
     setDetail: function ($element, value) {
       if (value === undefined) {
-        value = '';
+        value = ''
       } else if (typeof value.toUrlValue == 'function') {
-        value = value.toUrlValue();
+        value = value.toUrlValue()
       }
       if ($element.is(':input')) {
-        $element.val(value);
+        $element.val(value)
       } else {
-        $element.text(value);
+        $element.text(value)
       }
     },
     markerDragged: function (event) {
-      this.trigger('geocode:dragged', event.latLng);
+      this.trigger('geocode:dragged', event.latLng)
     },
     mapClicked: function (event) {
-      this.trigger('geocode:click', event.latLng);
+      this.trigger('geocode:click', event.latLng)
     },
     mapDragged: function (event) {
-      this.trigger('geocode:mapdragged', this.map.getCenter());
+      this.trigger('geocode:mapdragged', this.map.getCenter())
     },
     mapIdle: function (event) {
-      this.trigger('geocode:idle', this.map.getCenter());
+      this.trigger('geocode:idle', this.map.getCenter())
     },
     mapZoomed: function (event) {
-      this.trigger('geocode:zoom', this.map.getZoom());
+      this.trigger('geocode:zoom', this.map.getZoom())
     },
     resetMarker: function () {
-      this.marker.setPosition(this.data.location);
-      this.setDetail(this.details.lat, this.data.location.lat());
-      this.setDetail(this.details.lng, this.data.location.lng());
+      this.marker.setPosition(this.data.location)
+      this.setDetail(this.details.lat, this.data.location.lat())
+      this.setDetail(this.details.lng, this.data.location.lng())
     },
     placeChanged: function () {
-      var place = this.autocomplete.getPlace();
-      this.selected = true;
+      var place = this.autocomplete.getPlace()
+      this.selected = true
       if (!place.geometry) {
         if (this.options.autoselect) {
-          var autoSelection = this.selectFirstResult();
-          this.find(autoSelection);
+          var autoSelection = this.selectFirstResult()
+          this.find(autoSelection)
         }
       } else {
-        this.update(place);
+        this.update(place)
       }
-    },
-  });
+    }
+  })
   $.fn.geocomplete = function (options) {
-    var attribute = 'plugin_geocomplete';
+    var attribute = 'plugin_geocomplete'
     if (typeof options == 'string') {
-      var instance =
-          $(this).data(attribute) || $(this).geocomplete().data(attribute),
-        prop = instance[options];
+      var instance = $(this).data(attribute) || $(this).geocomplete().data(attribute),
+        prop = instance[options]
       if (typeof prop == 'function') {
-        prop.apply(instance, Array.prototype.slice.call(arguments, 1));
-        return $(this);
+        prop.apply(instance, Array.prototype.slice.call(arguments, 1))
+        return $(this)
       } else {
         if (arguments.length == 2) {
-          prop = arguments[1];
+          prop = arguments[1]
         }
-        return prop;
+        return prop
       }
     } else {
       return this.each(function () {
-        var instance = $.data(this, attribute);
+        var instance = $.data(this, attribute)
         if (!instance) {
-          instance = new GeoComplete(this, options);
-          $.data(this, attribute, instance);
+          instance = new GeoComplete(this, options)
+          $.data(this, attribute, instance)
         }
-      });
+      })
     }
-  };
-})(jQuery, window, document);
+  }
+})(jQuery, window, document)

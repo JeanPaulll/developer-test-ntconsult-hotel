@@ -1,26 +1,26 @@
-import 'vuetify/styles';
-import { createVuetify } from 'vuetify';
-import { aliases, mdi } from 'vuetify/iconsets/mdi';
+import 'vuetify/styles'
+import { createVuetify } from 'vuetify'
+import { aliases, mdi } from 'vuetify/iconsets/mdi'
 
 const vuetify = createVuetify({
   icons: {
     defaultSet: 'mdi',
     aliases,
     sets: {
-      mdi,
-    },
+      mdi
+    }
   },
   theme: {
-    defaultTheme: 'light', // 'light' - 'dark'
+    defaultTheme: 'light',
     themes: {
       light: {
         colors: {
           primary: '#6200ea',
-          secondary: '#03dac6',
-        },
-      },
-    },
-  },
-});
+          secondary: '#03dac6'
+        }
+      }
+    }
+  }
+})
 
-export default vuetify;
+export default vuetify

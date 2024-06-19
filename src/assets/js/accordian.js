@@ -7,149 +7,149 @@
  * @license http://www.snyderplace.com/accordion/license.txt New BSD
  * @version 1.1
  */
-(function ($) {
+;(function ($) {
   $.fn.accordion = function (options) {
     //firewalling
     if (!this || this.length < 1) {
-      return this;
+      return this
     }
 
-    initialize(this, options);
-  };
+    initialize(this, options)
+  }
 
   //create the initial accordion
   function initialize(obj, options) {
     //build main options before element iteration
-    var opts = $.extend({}, $.fn.accordion.defaults, options);
+    var opts = $.extend({}, $.fn.accordion.defaults, options)
 
     //store any opened default values to set cookie later
-    var opened = '';
+    var opened = ''
 
     //iterate each matched object, bind, and open/close
     obj.each(function () {
-      var $this = $(this);
-      saveOpts($this, opts);
+      var $this = $(this)
+      saveOpts($this, opts)
 
       //bind it to the event
       if (opts.bind == 'mouseenter') {
         $this.bind('mouseenter', function (e) {
-          e.preventDefault();
-          toggle($this, opts);
-        });
+          e.preventDefault()
+          toggle($this, opts)
+        })
       }
 
       //bind it to the event
       if (opts.bind == 'mouseover') {
         $this.bind('mouseover', function (e) {
-          e.preventDefault();
-          toggle($this, opts);
-        });
+          e.preventDefault()
+          toggle($this, opts)
+        })
       }
 
       //bind it to the event
       if (opts.bind == 'click') {
         $this.bind('click', function (e) {
-          e.preventDefault();
-          toggle($this, opts);
-        });
+          e.preventDefault()
+          toggle($this, opts)
+        })
       }
 
       //bind it to the event
       if (opts.bind == 'dblclick') {
         $this.bind('dblclick', function (e) {
-          e.preventDefault();
-          toggle($this, opts);
-        });
+          e.preventDefault()
+          toggle($this, opts)
+        })
       }
 
       //initialize the panels
       //get the id for this element
-      id = $this.attr('id');
+      id = $this.attr('id')
 
       //if not using cookies, open defaults
       if (!useCookies(opts)) {
         //close it if not defaulted to open
         if (id != opts.defaultOpen) {
-          $this.addClass(opts.cssClose);
-          opts.loadClose($this, opts);
+          $this.addClass(opts.cssClose)
+          opts.loadClose($this, opts)
         } else {
           //its a default open, open it
-          $this.addClass(opts.cssOpen);
-          opts.loadOpen($this, opts);
-          opened = id;
+          $this.addClass(opts.cssOpen)
+          opts.loadOpen($this, opts)
+          opened = id
         }
       } else {
         //can use cookies, use them now
         //has a cookie been set, this overrides default open
         if (issetCookie(opts)) {
           if (inCookie(id, opts) === false) {
-            $this.addClass(opts.cssClose);
-            opts.loadClose($this, opts);
+            $this.addClass(opts.cssClose)
+            opts.loadClose($this, opts)
           } else {
-            $this.addClass(opts.cssOpen);
-            opts.loadOpen($this, opts);
-            opened = id;
+            $this.addClass(opts.cssOpen)
+            opts.loadOpen($this, opts)
+            opened = id
           }
         } else {
           //a cookie hasn't been set open defaults
           if (id != opts.defaultOpen) {
-            $this.addClass(opts.cssClose);
-            opts.loadClose($this, opts);
+            $this.addClass(opts.cssClose)
+            opts.loadClose($this, opts)
           } else {
             //its a default open, open it
-            $this.addClass(opts.cssOpen);
-            opts.loadOpen($this, opts);
-            opened = id;
+            $this.addClass(opts.cssOpen)
+            opts.loadOpen($this, opts)
+            opened = id
           }
         }
       }
-    });
+    })
 
     //now that the loop is done, set the cookie
     if (opened.length > 0 && useCookies(opts)) {
-      setCookie(opened, opts);
+      setCookie(opened, opts)
     } else {
       //there are none open, set cookie
-      setCookie('', opts);
+      setCookie('', opts)
     }
 
-    return obj;
+    return obj
   }
 
   //load opts from object
   function loadOpts($this) {
-    return $this.data('accordion-opts');
+    return $this.data('accordion-opts')
   }
 
   //save opts into object
   function saveOpts($this, opts) {
-    return $this.data('accordion-opts', opts);
+    return $this.data('accordion-opts', opts)
   }
 
   //hides a accordion panel
   function close(opts) {
-    opened = $(document).find('.' + opts.cssOpen);
+    opened = $(document).find('.' + opts.cssOpen)
     $.each(opened, function () {
       //give the proper class to the linked element
-      $(this).addClass(opts.cssClose).removeClass(opts.cssOpen);
-      opts.animateClose($(this), opts);
-    });
+      $(this).addClass(opts.cssClose).removeClass(opts.cssOpen)
+      opts.animateClose($(this), opts)
+    })
   }
 
   //opens a accordion panel
   function open($this, opts) {
-    close(opts);
+    close(opts)
     //give the proper class to the linked element
-    $this.removeClass(opts.cssClose).addClass(opts.cssOpen);
+    $this.removeClass(opts.cssClose).addClass(opts.cssOpen)
 
     //open the element
-    opts.animateOpen($this, opts);
+    opts.animateOpen($this, opts)
 
     //do cookies if plugin available
     if (useCookies(opts)) {
       // split the cookieOpen string by ","
-      id = $this.attr('id');
-      setCookie(id, opts);
+      id = $this.attr('id')
+      setCookie(id, opts)
     }
   }
 
@@ -157,29 +157,29 @@
   function toggle($this, opts) {
     // close the only open item
     if ($this.hasClass(opts.cssOpen)) {
-      close(opts);
+      close(opts)
       //do cookies if plugin available
       if (useCookies(opts)) {
         // split the cookieOpen string by ","
-        setCookie('', opts);
+        setCookie('', opts)
       }
-      return false;
+      return false
     }
-    close(opts);
+    close(opts)
     //open a closed element
-    open($this, opts);
-    return false;
+    open($this, opts)
+    return false
   }
 
   //use cookies?
   function useCookies(opts) {
     //return false if cookie plugin not present or if a cookie name is not provided
     if (!$.cookie || opts.cookieName == '') {
-      return false;
+      return false
     }
 
     //we can use cookies
-    return true;
+    return true
   }
 
   //set a cookie
@@ -187,36 +187,36 @@
     //can use the cookie plugin
     if (!useCookies(opts)) {
       //no, quit here
-      return false;
+      return false
     }
 
     //cookie plugin is available, lets set the cookie
-    $.cookie(opts.cookieName, value, opts.cookieOptions);
+    $.cookie(opts.cookieName, value, opts.cookieOptions)
   }
 
   //check if a accordion is in the cookie
   function inCookie(value, opts) {
     //can use the cookie plugin
     if (!useCookies(opts)) {
-      return false;
+      return false
     }
 
     //if its not there we don't need to remove from it
     if (!issetCookie(opts)) {
       //quit here, don't have a cookie
-      return false;
+      return false
     }
 
     //unescape it
-    cookie = unescape($.cookie(opts.cookieName));
+    cookie = unescape($.cookie(opts.cookieName))
 
     //is this value in the cookie arrray
     if (cookie != value) {
       //no, quit here
-      return false;
+      return false
     }
 
-    return true;
+    return true
   }
 
   //check if a cookie is set
@@ -224,16 +224,16 @@
     //can we use the cookie plugin
     if (!useCookies(opts)) {
       //no, quit here
-      return false;
+      return false
     }
 
     //is the cookie set
     if ($.cookie(opts.cookieName) == null) {
       //no, quit here
-      return false;
+      return false
     }
 
-    return true;
+    return true
   }
 
   // settings
@@ -246,26 +246,26 @@
       path: '/',
       expires: 7,
       domain: '',
-      secure: '',
+      secure: ''
     },
     defaultOpen: '', //id that you want opened by default
     speed: 'slow', //speed of the slide effect
     bind: 'click', //event to bind to, supports click, dblclick, mouseover and mouseenter
     animateOpen: function (elem, opts) {
       //replace the standard slideDown with custom function
-      elem.next().stop(true, true).slideDown(opts.speed);
+      elem.next().stop(true, true).slideDown(opts.speed)
     },
     animateClose: function (elem, opts) {
       //replace the standard slideUp with custom function
-      elem.next().stop(true, true).slideUp(opts.speed);
+      elem.next().stop(true, true).slideUp(opts.speed)
     },
     loadOpen: function (elem, opts) {
       //replace the default open state with custom function
-      elem.next().show();
+      elem.next().show()
     },
     loadClose: function (elem, opts) {
       //replace the default close state with custom function
-      elem.next().hide();
-    },
-  };
-})(jQuery);
+      elem.next().hide()
+    }
+  }
+})(jQuery)

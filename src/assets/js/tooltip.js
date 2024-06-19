@@ -8,7 +8,7 @@ jQuery(document).ready(function ($) {
   // loading tooltip ------------------------------------------------------------------------------------------------------------
   // init
   var $js_tooltips = $('.js-tooltip'),
-    $body = $('body');
+    $body = $('body')
 
   if ($js_tooltips.length) {
     // if there are at least one :)
@@ -17,31 +17,27 @@ jQuery(document).ready(function ($) {
       var $this = $(this),
         options = $this.data(),
         $tooltip_prefix_class =
-          typeof options.tooltipPrefixClass !== 'undefined'
-            ? options.tooltipPrefixClass + '-'
-            : '',
-        index_lisible = index_to_expand + 1;
+          typeof options.tooltipPrefixClass !== 'undefined' ? options.tooltipPrefixClass + '-' : '',
+        index_lisible = index_to_expand + 1
 
       $this.attr({
-        id: 'label_tooltip_' + index_lisible,
-      });
+        id: 'label_tooltip_' + index_lisible
+      })
       // wraps element in a container
-      $this.wrap(
-        '<span class="' + $tooltip_prefix_class + 'container"></span>',
-      );
-    });
+      $this.wrap('<span class="' + $tooltip_prefix_class + 'container"></span>')
+    })
   }
 
   // jQuery formatted selector to search for focusable items
   var focusableElementsString =
-    'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]';
+    'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]'
 
   // events ------------------
   $body
     .on('click', function (event) {
       var $target = $(event.target),
         $focus_back = $('#' + $('#js-tooltip-close').attr('data-focus-back')),
-        $dialog_tooltip = $('.js-dialogtooltip');
+        $dialog_tooltip = $('.js-dialogtooltip')
 
       // if click outside => close
       if (
@@ -50,33 +46,28 @@ jQuery(document).ready(function ($) {
           !$target.closest('.js-dialogtooltip').length) ||
         $target.is($focus_back)
       ) {
-        $dialog_tooltip.remove();
-        $focus_back.removeClass('is-active');
+        $dialog_tooltip.remove()
+        $focus_back.removeClass('is-active')
       }
     })
     .on('click', ".js-tooltip:not('.is-active')", function (event) {
       var $this = $(this),
         options = $this.data(),
         $tooltip_prefix_class =
-          typeof options.tooltipPrefixClass !== 'undefined'
-            ? options.tooltipPrefixClass + '-'
-            : '',
+          typeof options.tooltipPrefixClass !== 'undefined' ? options.tooltipPrefixClass + '-' : '',
         $tooltip_text = options.tooltipText || '',
         $tooltip_content_id =
-          typeof options.tooltipContentId !== 'undefined'
-            ? '#' + options.tooltipContentId
-            : '',
+          typeof options.tooltipContentId !== 'undefined' ? '#' + options.tooltipContentId : '',
         $tooltip_title = options.tooltipTitle || '',
         $tooltip_close_text = options.tooltipCloseText || 'Close',
-        $tooltip_close_title =
-          options.tooltipCloseTitle || options.tooltipCloseText,
+        $tooltip_close_title = options.tooltipCloseTitle || options.tooltipCloseText,
         $tooltip_close_img = options.tooltipCloseImg || '',
         $tooltip_starter_id = $this.attr('id'),
-        $tooltip_code;
+        $tooltip_code
 
       // close tooltip and remove active one
-      $('#js-tooltip').remove();
-      $('.js-tooltip').removeClass('is-active');
+      $('#js-tooltip').remove()
+      $('.js-tooltip').removeClass('is-active')
 
       // insert code at the end
       $tooltip_code =
@@ -84,7 +75,7 @@ jQuery(document).ready(function ($) {
         $tooltip_prefix_class +
         'tooltip" data-launched-by="click" aria-labelledby="tooltip-title" open aria-modal="true"><div role="document" class="' +
         $tooltip_prefix_class +
-        'tooltip__wrapper">';
+        'tooltip__wrapper">'
       $tooltip_code +=
         '<button id="js-tooltip-close" class="' +
         $tooltip_prefix_class +
@@ -94,7 +85,7 @@ jQuery(document).ready(function ($) {
         $tooltip_close_title +
         '" type="button"><span class="' +
         $tooltip_prefix_class +
-        'tooltip__closetext__container">';
+        'tooltip__closetext__container">'
       if ($tooltip_close_img !== '') {
         $tooltip_code +=
           '<img src="' +
@@ -103,11 +94,11 @@ jQuery(document).ready(function ($) {
           $tooltip_close_text +
           '" class="' +
           $tooltip_prefix_class +
-          'tooltip__closeimg" />';
+          'tooltip__closeimg" />'
       } else {
-        $tooltip_code += $tooltip_close_text;
+        $tooltip_code += $tooltip_close_text
       }
-      $tooltip_code += '</span></button>';
+      $tooltip_code += '</span></button>'
 
       if ($tooltip_title !== '') {
         $tooltip_code +=
@@ -115,30 +106,30 @@ jQuery(document).ready(function ($) {
           $tooltip_prefix_class +
           'tooltip__title">' +
           $tooltip_title +
-          '</h1>';
+          '</h1>'
       }
       if ($tooltip_text !== '') {
-        $tooltip_code += '<p>' + $tooltip_text + '</p>';
+        $tooltip_code += '<p>' + $tooltip_text + '</p>'
       } else {
         if ($tooltip_content_id !== '' && $($tooltip_content_id).length) {
-          $tooltip_code += $($tooltip_content_id).html();
+          $tooltip_code += $($tooltip_content_id).html()
         }
       }
-      $tooltip_code += '</div></dialog>';
+      $tooltip_code += '</div></dialog>'
 
       // Chrome bug
       setTimeout(function () {
-        $($tooltip_code).insertAfter($this);
-      }, 50);
+        $($tooltip_code).insertAfter($this)
+      }, 50)
       // fix for Chrome bug resolution…
       setTimeout(function () {
-        $('#js-tooltip-close').focus();
-      }, 51);
+        $('#js-tooltip-close').focus()
+      }, 51)
 
-      $('#' + $tooltip_starter_id).addClass('is-active');
+      $('#' + $tooltip_starter_id).addClass('is-active')
 
-      event.preventDefault();
-    });
+      event.preventDefault()
+    })
   /*
      .on( 'mouseleave', '#js-tooltip', function( event ) {
           var $this = $(this),
@@ -156,50 +147,46 @@ jQuery(document).ready(function ($) {
   $body
     .on('click', '#js-tooltip-close', function (event) {
       var $this = $(this),
-        $tooltip_launched_by = $this
-          .parents('#js-tooltip')
-          .attr('data-launched-by'),
-        $focus_back = $('#' + $this.attr('data-focus-back'));
+        $tooltip_launched_by = $this.parents('#js-tooltip').attr('data-launched-by'),
+        $focus_back = $('#' + $this.attr('data-focus-back'))
 
-      $('#js-tooltip').remove();
-      $focus_back.focus();
-      $focus_back.removeClass('is-active');
+      $('#js-tooltip').remove()
+      $focus_back.focus()
+      $focus_back.removeClass('is-active')
     })
     .on('keydown', '#js-tooltip', function (event) {
-      var $this = $(this);
+      var $this = $(this)
 
       if (event.keyCode == 27) {
         // esc
-        $('#js-tooltip-close').click();
-        event.preventDefault();
+        $('#js-tooltip-close').click()
+        event.preventDefault()
       }
       if (event.keyCode == 9) {
         // tab or maj+tab
 
         // get list of all children elements in given object
-        var children = $this.find('*');
+        var children = $this.find('*')
 
         // get list of focusable items
-        var focusableItems = children
-          .filter(focusableElementsString)
-          .filter(':visible');
+        var focusableItems = children.filter(focusableElementsString).filter(':visible')
 
         // get currently focused item
-        var focusedItem = $(document.activeElement);
+        var focusedItem = $(document.activeElement)
 
         // get the number of focusable items
-        var numberOfFocusableItems = focusableItems.length;
+        var numberOfFocusableItems = focusableItems.length
 
-        var focusedItemIndex = focusableItems.index(focusedItem);
+        var focusedItemIndex = focusableItems.index(focusedItem)
 
         if (!event.shiftKey && focusedItemIndex == numberOfFocusableItems - 1) {
-          focusableItems.get(0).focus();
-          event.preventDefault();
+          focusableItems.get(0).focus()
+          event.preventDefault()
         }
         if (event.shiftKey && focusedItemIndex == 0) {
-          focusableItems.get(numberOfFocusableItems - 1).focus();
-          event.preventDefault();
+          focusableItems.get(numberOfFocusableItems - 1).focus()
+          event.preventDefault()
         }
       }
-    });
-});
+    })
+})

@@ -4,8 +4,8 @@
  * Copyright (c) 2014 Prashanth Pamidi; Licensed MIT
  *****/
 
-(function ($) {
-  'use strict';
+;(function ($) {
+  'use strict'
 
   /* The basic svg string required to generate stars
    */
@@ -22,7 +22,7 @@
     '414.918,499.295 256.814,384.427 ' +
     '98.713,499.295 159.102,313.435 ' +
     '1,198.566 196.426,198.566 "/>' +
-    '</svg>';
+    '</svg>'
 
   var DEFAULTS = {
     starWidth: '14px',
@@ -37,92 +37,85 @@
     readOnly: false,
     spacing: '0px',
     onChange: null,
-    onSet: null,
-  };
+    onSet: null
+  }
 
   function checkPrecision(value, minValue, maxValue) {
     /* its like comparing 0.00 with 0 which is true*/
     if (value === minValue) {
-      value = minValue;
+      value = minValue
     } else if (value === maxValue) {
-      value = maxValue;
+      value = maxValue
     }
 
-    return value;
+    return value
   }
 
   function checkBounds(value, minValue, maxValue) {
-    var isValid = value >= minValue && value <= maxValue;
+    var isValid = value >= minValue && value <= maxValue
 
     if (!isValid) {
-      throw Error(
-        'Invalid Rating, expected value between ' +
-          minValue +
-          ' and ' +
-          maxValue,
-      );
+      throw Error('Invalid Rating, expected value between ' + minValue + ' and ' + maxValue)
     }
 
-    return value;
+    return value
   }
 
   function getInstance(node, collection) {
-    var instance;
+    var instance
 
     $.each(collection, function () {
       if (node === this.node) {
-        instance = this;
-        return false;
+        instance = this
+        return false
       }
-    });
+    })
 
-    return instance;
+    return instance
   }
 
   function deleteInstance(node, collection) {
     $.each(collection, function (index) {
       if (node === this.node) {
         var firstPart = collection.slice(0, index),
-          secondPart = collection.slice(index + 1, collection.length);
+          secondPart = collection.slice(index + 1, collection.length)
 
-        collection = firstPart.concat(secondPart);
+        collection = firstPart.concat(secondPart)
 
-        return false;
+        return false
       }
-    });
+    })
 
-    return collection;
+    return collection
   }
 
   function isDefined(value) {
-    return typeof value !== 'undefined';
+    return typeof value !== 'undefined'
   }
 
   /* The Contructor, whose instances are used by plugin itself,
    * to set and get values
    */
   function RateYo($node, options) {
-    this.$node = $node;
+    this.$node = $node
 
-    this.node = $node.get(0);
+    this.node = $node.get(0)
 
-    var that = this;
+    var that = this
 
-    $node.addClass('jq-ry-container');
+    $node.addClass('jq-ry-container')
 
-    var $groupWrapper = $('<div/>')
-      .addClass('jq-ry-group-wrapper')
-      .appendTo($node);
+    var $groupWrapper = $('<div/>').addClass('jq-ry-group-wrapper').appendTo($node)
 
     var $normalGroup = $('<div/>')
       .addClass('jq-ry-normal-group')
       .addClass('jq-ry-group')
-      .appendTo($groupWrapper);
+      .appendTo($groupWrapper)
 
     var $ratedGroup = $('<div/>')
       .addClass('jq-ry-rated-group')
       .addClass('jq-ry-group')
-      .appendTo($groupWrapper);
+      .appendTo($groupWrapper)
 
     var step,
       starWidth,
@@ -130,286 +123,278 @@
       spacing,
       percentOfSpacing,
       containerWidth,
-      minValue = 0;
+      minValue = 0
 
     function showRating(ratingVal) {
       if (!isDefined(ratingVal)) {
-        ratingVal = options.rating;
+        ratingVal = options.rating
       }
 
-      var numStarsToShow = ratingVal / step;
+      var numStarsToShow = ratingVal / step
 
-      var percent = numStarsToShow * percentOfStar;
+      var percent = numStarsToShow * percentOfStar
 
       if (numStarsToShow > 1) {
-        percent += (Math.ceil(numStarsToShow) - 1) * percentOfSpacing;
+        percent += (Math.ceil(numStarsToShow) - 1) * percentOfSpacing
       }
 
-      $ratedGroup.css('width', percent + '%');
+      $ratedGroup.css('width', percent + '%')
     }
 
     function setContainerWidth() {
-      containerWidth = starWidth * options.numStars;
+      containerWidth = starWidth * options.numStars
 
-      containerWidth += spacing * (options.numStars - 1);
+      containerWidth += spacing * (options.numStars - 1)
 
-      percentOfStar = (starWidth / containerWidth) * 100;
+      percentOfStar = (starWidth / containerWidth) * 100
 
-      percentOfSpacing = (spacing / containerWidth) * 100;
+      percentOfSpacing = (spacing / containerWidth) * 100
 
-      $node.width(containerWidth);
+      $node.width(containerWidth)
 
-      showRating();
+      showRating()
     }
 
     function setStarWidth(newWidth) {
       if (!isDefined(newWidth)) {
-        return options.starWidth;
+        return options.starWidth
       }
 
       // In the current version, the width and height of the star
       // should be the same
-      options.starWidth = options.starHeight = newWidth;
+      options.starWidth = options.starHeight = newWidth
 
-      starWidth = parseFloat(options.starWidth.replace('px', ''));
+      starWidth = parseFloat(options.starWidth.replace('px', ''))
 
-      $normalGroup
-        .find('svg')
-        .attr({ width: options.starWidth, height: options.starHeight });
+      $normalGroup.find('svg').attr({ width: options.starWidth, height: options.starHeight })
 
-      $ratedGroup
-        .find('svg')
-        .attr({ width: options.starWidth, height: options.starHeight });
+      $ratedGroup.find('svg').attr({ width: options.starWidth, height: options.starHeight })
 
-      setContainerWidth();
+      setContainerWidth()
 
-      return $node;
+      return $node
     }
 
     function setSpacing(newSpacing) {
       if (!isDefined(newSpacing)) {
-        return options.spacing;
+        return options.spacing
       }
 
-      options.spacing = newSpacing;
+      options.spacing = newSpacing
 
-      spacing = parseFloat(options.spacing.replace('px', ''));
+      spacing = parseFloat(options.spacing.replace('px', ''))
 
-      $normalGroup
-        .find('svg:not(:first-child)')
-        .css({ 'margin-left': newSpacing });
+      $normalGroup.find('svg:not(:first-child)').css({ 'margin-left': newSpacing })
 
-      $ratedGroup
-        .find('svg:not(:first-child)')
-        .css({ 'margin-left': newSpacing });
+      $ratedGroup.find('svg:not(:first-child)').css({ 'margin-left': newSpacing })
 
-      setContainerWidth();
+      setContainerWidth()
 
-      return $node;
+      return $node
     }
 
     function setNormalFill(newFill) {
       if (!isDefined(newFill)) {
-        return options.normalFill;
+        return options.normalFill
       }
 
-      options.normalFill = newFill;
+      options.normalFill = newFill
 
-      $normalGroup.find('svg').attr({ fill: options.normalFill });
+      $normalGroup.find('svg').attr({ fill: options.normalFill })
 
-      return $node;
+      return $node
     }
 
     function setRatedFill(newFill) {
       if (!isDefined(newFill)) {
-        return options.ratedFill;
+        return options.ratedFill
       }
 
-      options.ratedFill = newFill;
+      options.ratedFill = newFill
 
-      $ratedGroup.find('svg').attr({ fill: options.ratedFill });
+      $ratedGroup.find('svg').attr({ fill: options.ratedFill })
 
-      return $node;
+      return $node
     }
 
     function setNumStars(newValue) {
       if (!isDefined(newValue)) {
-        return options.numStars;
+        return options.numStars
       }
 
-      options.numStars = newValue;
+      options.numStars = newValue
 
-      step = options.maxValue / options.numStars;
+      step = options.maxValue / options.numStars
 
-      $normalGroup.empty();
-      $ratedGroup.empty();
+      $normalGroup.empty()
+      $ratedGroup.empty()
 
       for (var i = 0; i < options.numStars; i++) {
-        $normalGroup.append($(BASICSTAR));
-        $ratedGroup.append($(BASICSTAR));
+        $normalGroup.append($(BASICSTAR))
+        $ratedGroup.append($(BASICSTAR))
       }
 
-      setStarWidth(options.starWidth);
-      setRatedFill(options.ratedFill);
-      setNormalFill(options.normalFill);
-      setSpacing(options.spacing);
+      setStarWidth(options.starWidth)
+      setRatedFill(options.ratedFill)
+      setNormalFill(options.normalFill)
+      setSpacing(options.spacing)
 
-      showRating();
+      showRating()
 
-      return $node;
+      return $node
     }
 
     function setMaxValue(newValue) {
       if (!isDefined(newValue)) {
-        return options.maxValue;
+        return options.maxValue
       }
 
-      options.maxValue = newValue;
+      options.maxValue = newValue
 
-      step = options.maxValue / options.numStars;
+      step = options.maxValue / options.numStars
 
       if (options.rating > newValue) {
-        setRating(newValue);
+        setRating(newValue)
       }
 
-      showRating();
+      showRating()
 
-      return $node;
+      return $node
     }
 
     function setPrecision(newValue) {
       if (!isDefined(newValue)) {
-        return options.precision;
+        return options.precision
       }
 
-      options.precision = newValue;
+      options.precision = newValue
 
-      showRating();
+      showRating()
 
-      return $node;
+      return $node
     }
 
     function setHalfStar(newValue) {
       if (!isDefined(newValue)) {
-        return options.halfStar;
+        return options.halfStar
       }
 
-      options.halfStar = newValue;
+      options.halfStar = newValue
 
-      return $node;
+      return $node
     }
 
     function setFullStar(newValue) {
       if (!isDefined(newValue)) {
-        return options.fullStar;
+        return options.fullStar
       }
 
-      options.fullStar = newValue;
+      options.fullStar = newValue
 
-      return $node;
+      return $node
     }
 
     function round(value) {
       var remainder = value % step,
         halfStep = step / 2,
         isHalfStar = options.halfStar,
-        isFullStar = options.fullStar;
+        isFullStar = options.fullStar
 
       if (!isFullStar && !isHalfStar) {
-        return value;
+        return value
       }
 
       if (isFullStar || (isHalfStar && remainder > halfStep)) {
-        value += step - remainder;
+        value += step - remainder
       } else {
-        value = value - remainder;
+        value = value - remainder
 
         if (remainder > 0) {
-          value += halfStep;
+          value += halfStep
         }
       }
 
-      return value;
+      return value
     }
 
     function calculateRating(e) {
       var position = $normalGroup.offset(),
         nodeStartX = position.left,
-        nodeEndX = nodeStartX + $normalGroup.width();
+        nodeEndX = nodeStartX + $normalGroup.width()
 
-      var maxValue = options.maxValue;
+      var maxValue = options.maxValue
 
-      var pageX = e.pageX;
+      var pageX = e.pageX
 
-      var calculatedRating = 0;
+      var calculatedRating = 0
 
       if (pageX < nodeStartX) {
-        calculatedRating = minValue;
+        calculatedRating = minValue
       } else if (pageX > nodeEndX) {
-        calculatedRating = maxValue;
+        calculatedRating = maxValue
       } else {
-        var calcPrcnt = (pageX - nodeStartX) / (nodeEndX - nodeStartX);
+        var calcPrcnt = (pageX - nodeStartX) / (nodeEndX - nodeStartX)
 
         if (spacing > 0) {
-          calcPrcnt *= 100;
+          calcPrcnt *= 100
 
-          var remPrcnt = calcPrcnt;
+          var remPrcnt = calcPrcnt
 
           while (remPrcnt > 0) {
             if (remPrcnt > percentOfStar) {
-              calculatedRating += step;
-              remPrcnt -= percentOfStar + percentOfSpacing;
+              calculatedRating += step
+              remPrcnt -= percentOfStar + percentOfSpacing
             } else {
-              calculatedRating += (remPrcnt / percentOfStar) * step;
-              remPrcnt = 0;
+              calculatedRating += (remPrcnt / percentOfStar) * step
+              remPrcnt = 0
             }
           }
         } else {
-          calculatedRating = calcPrcnt * options.maxValue;
+          calculatedRating = calcPrcnt * options.maxValue
         }
 
-        calculatedRating = round(calculatedRating);
+        calculatedRating = round(calculatedRating)
       }
 
-      return calculatedRating;
+      return calculatedRating
     }
 
     function onMouseEnter(e) {
-      var rating = calculateRating(e).toFixed(options.precision);
+      var rating = calculateRating(e).toFixed(options.precision)
 
-      var maxValue = options.maxValue;
+      var maxValue = options.maxValue
 
-      rating = checkPrecision(parseFloat(rating), minValue, maxValue);
+      rating = checkPrecision(parseFloat(rating), minValue, maxValue)
 
-      showRating(rating);
+      showRating(rating)
 
-      $node.trigger('rateyo.change', { rating: rating });
+      $node.trigger('rateyo.change', { rating: rating })
     }
 
     function onMouseLeave() {
-      showRating();
+      showRating()
 
-      $node.trigger('rateyo.change', { rating: options.rating });
+      $node.trigger('rateyo.change', { rating: options.rating })
     }
 
     function onMouseClick(e) {
-      var resultantRating = calculateRating(e).toFixed(options.precision);
-      resultantRating = parseFloat(resultantRating);
+      var resultantRating = calculateRating(e).toFixed(options.precision)
+      resultantRating = parseFloat(resultantRating)
 
-      that.rating(resultantRating);
+      that.rating(resultantRating)
     }
 
     function onChange(e, data) {
       if (options.onChange && typeof options.onChange === 'function') {
         /* jshint validthis:true */
-        options.onChange.apply(this, [data.rating, that]);
+        options.onChange.apply(this, [data.rating, that])
       }
     }
 
     function onSet(e, data) {
       if (options.onSet && typeof options.onSet === 'function') {
         /* jshint validthis:true */
-        options.onSet.apply(this, [data.rating, that]);
+        options.onSet.apply(this, [data.rating, that])
       }
     }
 
@@ -420,7 +405,7 @@
         .on('mouseleave', onMouseLeave)
         .on('click', onMouseClick)
         .on('rateyo.change', onChange)
-        .on('rateyo.set', onSet);
+        .on('rateyo.set', onSet)
     }
 
     function unbindEvents() {
@@ -430,254 +415,251 @@
         .off('mouseleave', onMouseLeave)
         .off('click', onMouseClick)
         .off('rateyo.change', onChange)
-        .off('rateyo.set', onSet);
+        .off('rateyo.set', onSet)
     }
 
     function setReadOnly(newValue) {
       if (!isDefined(newValue)) {
-        return options.readOnly;
+        return options.readOnly
       }
 
-      options.readOnly = newValue;
+      options.readOnly = newValue
 
-      $node.attr('readonly', true);
+      $node.attr('readonly', true)
 
-      unbindEvents();
+      unbindEvents()
 
       if (!newValue) {
-        $node.removeAttr('readonly');
+        $node.removeAttr('readonly')
 
-        bindEvents();
+        bindEvents()
       }
 
-      return $node;
+      return $node
     }
 
     function setRating(newValue) {
       if (!isDefined(newValue)) {
-        return options.rating;
+        return options.rating
       }
 
-      var rating = newValue;
+      var rating = newValue
 
-      var maxValue = options.maxValue;
+      var maxValue = options.maxValue
 
       if (typeof rating === 'string') {
         if (rating[rating.length - 1] === '%') {
-          rating = rating.substr(0, rating.length - 1);
-          maxValue = 100;
+          rating = rating.substr(0, rating.length - 1)
+          maxValue = 100
 
-          setMaxValue(maxValue);
+          setMaxValue(maxValue)
         }
 
-        rating = parseFloat(rating);
+        rating = parseFloat(rating)
       }
 
-      checkBounds(rating, minValue, maxValue);
+      checkBounds(rating, minValue, maxValue)
 
-      rating = parseFloat(rating.toFixed(options.precision));
+      rating = parseFloat(rating.toFixed(options.precision))
 
-      checkPrecision(parseFloat(rating), minValue, maxValue);
+      checkPrecision(parseFloat(rating), minValue, maxValue)
 
-      options.rating = rating;
+      options.rating = rating
 
-      showRating();
+      showRating()
 
-      $node.trigger('rateyo.set', { rating: rating });
+      $node.trigger('rateyo.set', { rating: rating })
 
-      return $node;
+      return $node
     }
 
     function setOnSet(method) {
       if (!isDefined(method)) {
-        return options.onSet;
+        return options.onSet
       }
 
-      options.onSet = method;
+      options.onSet = method
 
-      return $node;
+      return $node
     }
 
     function setOnChange(method) {
       if (!isDefined(method)) {
-        return options.onChange;
+        return options.onChange
       }
 
-      options.onChange = method;
+      options.onChange = method
 
-      return $node;
+      return $node
     }
 
     this.rating = function (newValue) {
       if (!isDefined(newValue)) {
-        return options.rating;
+        return options.rating
       }
 
-      setRating(newValue);
+      setRating(newValue)
 
-      return $node;
-    };
+      return $node
+    }
 
     this.destroy = function () {
       if (!options.readOnly) {
-        unbindEvents();
+        unbindEvents()
       }
 
-      RateYo.prototype.collection = deleteInstance(
-        $node.get(0),
-        this.collection,
-      );
+      RateYo.prototype.collection = deleteInstance($node.get(0), this.collection)
 
-      $node.removeClass('jq-ry-container').children().remove();
+      $node.removeClass('jq-ry-container').children().remove()
 
-      return $node;
-    };
+      return $node
+    }
 
     this.method = function (methodName) {
       if (!methodName) {
-        throw Error('Method name not specified!');
+        throw Error('Method name not specified!')
       }
 
       if (!isDefined(this[methodName])) {
-        throw Error('Method ' + methodName + " doesn't exist!");
+        throw Error('Method ' + methodName + " doesn't exist!")
       }
 
       var args = Array.prototype.slice.apply(arguments, []),
         params = args.slice(1),
-        method = this[methodName];
+        method = this[methodName]
 
-      return method.apply(this, params);
-    };
+      return method.apply(this, params)
+    }
 
     this.option = function (optionName, param) {
       if (!isDefined(optionName)) {
-        return options;
+        return options
       }
 
-      var method;
+      var method
 
       switch (optionName) {
         case 'starWidth':
-          method = setStarWidth;
-          break;
+          method = setStarWidth
+          break
         case 'numStars':
-          method = setNumStars;
-          break;
+          method = setNumStars
+          break
         case 'normalFill':
-          method = setNormalFill;
-          break;
+          method = setNormalFill
+          break
         case 'ratedFill':
-          method = setRatedFill;
-          break;
+          method = setRatedFill
+          break
         case 'maxValue':
-          method = setMaxValue;
-          break;
+          method = setMaxValue
+          break
         case 'precision':
-          method = setPrecision;
-          break;
+          method = setPrecision
+          break
         case 'rating':
-          method = setRating;
-          break;
+          method = setRating
+          break
         case 'halfStar':
-          method = setHalfStar;
-          break;
+          method = setHalfStar
+          break
         case 'fullStar':
-          method = setFullStar;
-          break;
+          method = setFullStar
+          break
         case 'readOnly':
-          method = setReadOnly;
-          break;
+          method = setReadOnly
+          break
         case 'spacing':
-          method = setSpacing;
-          break;
+          method = setSpacing
+          break
         case 'onSet':
-          method = setOnSet;
-          break;
+          method = setOnSet
+          break
         case 'onChange':
-          method = setOnChange;
-          break;
+          method = setOnChange
+          break
         default:
-          throw Error('No such option as ' + optionName);
+          throw Error('No such option as ' + optionName)
       }
 
-      return method(param);
-    };
-
-    setNumStars(options.numStars);
-    setReadOnly(options.readOnly);
-
-    this.collection.push(this);
-    this.rating(options.rating);
-  }
-
-  RateYo.prototype.collection = [];
-
-  window.RateYo = RateYo;
-
-  function _rateYo(options) {
-    var rateYoInstances = RateYo.prototype.collection;
-
-    /* jshint validthis:true */
-    var $nodes = $(this);
-
-    if ($nodes.length === 0) {
-      return $nodes;
+      return method(param)
     }
 
-    var args = Array.prototype.slice.apply(arguments, []);
+    setNumStars(options.numStars)
+    setReadOnly(options.readOnly)
+
+    this.collection.push(this)
+    this.rating(options.rating)
+  }
+
+  RateYo.prototype.collection = []
+
+  window.RateYo = RateYo
+
+  function _rateYo(options) {
+    var rateYoInstances = RateYo.prototype.collection
+
+    /* jshint validthis:true */
+    var $nodes = $(this)
+
+    if ($nodes.length === 0) {
+      return $nodes
+    }
+
+    var args = Array.prototype.slice.apply(arguments, [])
 
     if (args.length === 0) {
       //Setting Options to empty
-      options = args[0] = {};
+      options = args[0] = {}
     } else if (args.length === 1 && typeof args[0] === 'object') {
       //Setting options to first argument
-      options = args[0];
+      options = args[0]
     } else if (args.length >= 1 && typeof args[0] === 'string') {
       var methodName = args[0],
-        params = args.slice(1);
+        params = args.slice(1)
 
-      var result = [];
+      var result = []
 
       $.each($nodes, function (i, node) {
-        var existingInstance = getInstance(node, rateYoInstances);
+        var existingInstance = getInstance(node, rateYoInstances)
 
         if (!existingInstance) {
-          throw Error('Trying to set options before even initialization');
+          throw Error('Trying to set options before even initialization')
         }
 
-        var method = existingInstance[methodName];
+        var method = existingInstance[methodName]
 
         if (!method) {
-          throw Error('Method ' + methodName + ' does not exist!');
+          throw Error('Method ' + methodName + ' does not exist!')
         }
 
-        var returnVal = method.apply(existingInstance, params);
+        var returnVal = method.apply(existingInstance, params)
 
-        result.push(returnVal);
-      });
+        result.push(returnVal)
+      })
 
-      result = result.length === 1 ? result[0] : $(result);
+      result = result.length === 1 ? result[0] : $(result)
 
-      return result;
+      return result
     } else {
-      throw Error('Invalid Arguments');
+      throw Error('Invalid Arguments')
     }
 
-    options = $.extend(JSON.parse(JSON.stringify(DEFAULTS)), options);
+    options = $.extend(JSON.parse(JSON.stringify(DEFAULTS)), options)
 
     return $.each($nodes, function () {
-      var existingInstance = getInstance(this, rateYoInstances);
+      var existingInstance = getInstance(this, rateYoInstances)
 
       if (!existingInstance) {
-        return new RateYo($(this), $.extend({}, options));
+        return new RateYo($(this), $.extend({}, options))
       }
-    });
+    })
   }
 
   function rateYo() {
     /* jshint validthis:true */
-    return _rateYo.apply(this, Array.prototype.slice.apply(arguments, []));
+    return _rateYo.apply(this, Array.prototype.slice.apply(arguments, []))
   }
 
-  $.fn.rateYo = rateYo;
-})(jQuery);
+  $.fn.rateYo = rateYo
+})(jQuery)

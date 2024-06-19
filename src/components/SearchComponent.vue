@@ -5,9 +5,9 @@
         <div class="col-md-12">
           <div class="tab-content">
             <div
+              id="tab-1"
               class="kode_write_detail search-img01 tab-pane fade active"
               role="tabpanel"
-              id="tab-1"
             >
               <h5 class="title-icon">
                 <span class="icon-travel"></span><b>{{ title }}</b>
@@ -17,10 +17,10 @@
                   <label>Destino</label>
                   <div class="ralative-icon">
                     <input
-                      type="text"
-                      class="location-finder"
                       v-model="destination"
+                      class="location-finder"
                       placeholder="Cidade, Região, País, ponto de referência, Hotel..."
+                      type="text"
                     />
                     <span class="icon-signs"></span>
                   </div>
@@ -31,11 +31,7 @@
                       <div class="kode_felid">
                         <label>Data de check-in</label>
                         <div class="ralative-icon">
-                          <input
-                            class="checkin"
-                            type="date"
-                            v-model="checkInDate"
-                          />
+                          <input v-model="checkInDate" class="checkin" type="date" />
                           <span class="fa fa-calendar"></span>
                         </div>
                       </div>
@@ -44,11 +40,7 @@
                       <div class="kode_felid">
                         <label>Data de check-out</label>
                         <div class="ralative-icon">
-                          <input
-                            class="checkout"
-                            type="date"
-                            v-model="checkOutDate"
-                          />
+                          <input v-model="checkOutDate" class="checkout" type="date" />
                           <span class="fa fa-calendar"></span>
                         </div>
                       </div>
@@ -59,7 +51,7 @@
                           <div class="col-md-4 col-xs-12 col-sm-6">
                             <div class="kode_felid">
                               <label>Quartos</label>
-                              <select class="select" v-model.number="rooms">
+                              <select v-model.number="rooms" class="select">
                                 <option v-for="n in 10" :key="n" :value="n">{{ n }}</option>
                               </select>
                             </div>
@@ -67,7 +59,7 @@
                           <div class="col-md-4 col-xs-12 col-sm-6">
                             <div class="kode_felid">
                               <label>Hóspedes</label>
-                              <select class="select" v-model.number="guests">
+                              <select v-model.number="guests" class="select">
                                 <option v-for="n in 10" :key="n" :value="n">{{ n }}</option>
                               </select>
                             </div>
@@ -77,10 +69,7 @@
                     </div>
                     <div class="col-md-3 col-xs-12 col-sm-12">
                       <div class="submit-form">
-                        <button
-                          type="submit"
-                          class="btn-normal-1 animated effect2-color-1"
-                        >
+                        <button class="btn-normal-1 animated effect2-color-1" type="submit">
                           Procure agora
                         </button>
                       </div>

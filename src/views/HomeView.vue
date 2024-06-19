@@ -30,21 +30,20 @@ import { useTripStore } from '@/stores/tripStore'
     TripCard,
     ServicesComponent,
     SearchComponent,
-    HeaderComponent,
+    HeaderComponent
   }
 })
 export default class Home extends Vue {
-  private tripStore = useTripStore();
+  private tripStore = useTripStore()
 
   get trips() {
-    return this.tripStore.trips;
+    return this.tripStore.trips
   }
 
   mounted() {
-    this.tripStore.loadTrips();
+    this.tripStore.loadTrips()
   }
 }
-
 </script>
 
 <style scoped></style>

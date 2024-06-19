@@ -2,141 +2,113 @@
   <div class="kf_instagram_updates">
     <div class="instagram">
       <figure>
-        <img src="../assets/extra-images/instagram-img01.jpg" alt="" />
-        <a
-          href="../assets/extra-images/instagram-img01.jpg"
-          data-rel="prettyPhoto"
-        ><i class="fa fa-instagram" aria-hidden="true"></i
+        <img alt="" src="../assets/extra-images/instagram-img01.jpg" />
+        <a data-rel="prettyPhoto" href="../assets/extra-images/instagram-img01.jpg"
+          ><i aria-hidden="true" class="fa fa-instagram"></i
         ></a>
       </figure>
     </div>
     <div class="instagram">
       <figure>
-        <img src="../assets/extra-images/instagram-img02.jpg" alt="" />
-        <a
-          href="../assets/extra-images/instagram-img02.jpg"
-          data-rel="prettyPhoto"
-        ><i class="fa fa-instagram" aria-hidden="true"></i
+        <img alt="" src="../assets/extra-images/instagram-img02.jpg" />
+        <a data-rel="prettyPhoto" href="../assets/extra-images/instagram-img02.jpg"
+          ><i aria-hidden="true" class="fa fa-instagram"></i
         ></a>
       </figure>
     </div>
     <div class="instagram">
       <figure>
-        <img src="../assets/extra-images/instagram-img03.jpg" alt="" />
-        <a
-          href="../assets/extra-images/instagram-img03.jpg"
-          data-rel="prettyPhoto"
-        ><i class="fa fa-instagram" aria-hidden="true"></i
+        <img alt="" src="../assets/extra-images/instagram-img03.jpg" />
+        <a data-rel="prettyPhoto" href="../assets/extra-images/instagram-img03.jpg"
+          ><i aria-hidden="true" class="fa fa-instagram"></i
         ></a>
       </figure>
     </div>
     <div class="instagram">
       <figure>
-        <img src="../assets/extra-images/instagram-img04.jpg" alt="" />
-        <a
-          href="../assets/extra-images/instagram-img04.jpg"
-          data-rel="prettyPhoto"
-        ><i class="fa fa-instagram" aria-hidden="true"></i
+        <img alt="" src="../assets/extra-images/instagram-img04.jpg" />
+        <a data-rel="prettyPhoto" href="../assets/extra-images/instagram-img04.jpg"
+          ><i aria-hidden="true" class="fa fa-instagram"></i
         ></a>
       </figure>
     </div>
     <div class="instagram">
       <figure>
-        <img src="../assets/extra-images/instagram-img05.jpg" alt="" />
-        <a
-          href="../assets/extra-images/instagram-img05.jpg"
-          data-rel="prettyPhoto"
-        ><i class="fa fa-instagram" aria-hidden="true"></i
+        <img alt="" src="../assets/extra-images/instagram-img05.jpg" />
+        <a data-rel="prettyPhoto" href="../assets/extra-images/instagram-img05.jpg"
+          ><i aria-hidden="true" class="fa fa-instagram"></i
         ></a>
       </figure>
     </div>
     <div class="instagram">
       <figure>
-        <img src="../assets/extra-images/instagram-img06.jpg" alt="" />
-        <a
-          href="../assets/extra-images/instagram-img06.jpg"
-          data-rel="prettyPhoto"
-        ><i class="fa fa-instagram" aria-hidden="true"></i
+        <img alt="" src="../assets/extra-images/instagram-img06.jpg" />
+        <a data-rel="prettyPhoto" href="../assets/extra-images/instagram-img06.jpg"
+          ><i aria-hidden="true" class="fa fa-instagram"></i
         ></a>
       </figure>
     </div>
     <div class="instagram">
       <figure>
-        <img src="../assets/extra-images/instagram-img07.jpg" alt="" />
-        <a
-          href="../assets/extra-images/instagram-img07.jpg"
-          data-rel="prettyPhoto"
-        ><i class="fa fa-instagram" aria-hidden="true"></i
+        <img alt="" src="../assets/extra-images/instagram-img07.jpg" />
+        <a data-rel="prettyPhoto" href="../assets/extra-images/instagram-img07.jpg"
+          ><i aria-hidden="true" class="fa fa-instagram"></i
         ></a>
       </figure>
     </div>
     <div class="instagram">
       <figure>
-        <img src="../assets/extra-images/instagram-img08.jpg" alt="" />
-        <a
-          href="../assets/extra-images/instagram-img08.jpg"
-          data-rel="prettyPhoto"
-        ><i class="fa fa-instagram" aria-hidden="true"></i
+        <img alt="" src="../assets/extra-images/instagram-img08.jpg" />
+        <a data-rel="prettyPhoto" href="../assets/extra-images/instagram-img08.jpg"
+          ><i aria-hidden="true" class="fa fa-instagram"></i
         ></a>
       </figure>
     </div>
     <div class="instagram">
       <figure>
-        <img src="../assets/extra-images/instagram-img09.jpg" alt="" />
-        <a
-          href="../assets/extra-images/instagram-img09.jpg"
-          data-rel="prettyPhoto"
-        ><i class="fa fa-instagram" aria-hidden="true"></i
+        <img alt="" src="../assets/extra-images/instagram-img09.jpg" />
+        <a data-rel="prettyPhoto" href="../assets/extra-images/instagram-img09.jpg"
+          ><i aria-hidden="true" class="fa fa-instagram"></i
         ></a>
       </figure>
     </div>
     <div class="instagram">
       <figure>
-        <img src="../assets/extra-images/instagram-img10.jpg" alt="" />
-        <a
-          href="../assets/extra-images/instagram-img10.jpg"
-          data-rel="prettyPhoto"
-        ><i class="fa fa-instagram" aria-hidden="true"></i
+        <img alt="" src="../assets/extra-images/instagram-img10.jpg" />
+        <a data-rel="prettyPhoto" href="../assets/extra-images/instagram-img10.jpg"
+          ><i aria-hidden="true" class="fa fa-instagram"></i
         ></a>
       </figure>
     </div>
     <div class="instagram">
       <figure>
-        <img src="../assets/extra-images/instagram-img11.jpg" alt="" />
-        <a
-          href="../assets/extra-images/instagram-img11.jpg"
-          data-rel="prettyPhoto"
-        ><i class="fa fa-instagram" aria-hidden="true"></i
+        <img alt="" src="../assets/extra-images/instagram-img11.jpg" />
+        <a data-rel="prettyPhoto" href="../assets/extra-images/instagram-img11.jpg"
+          ><i aria-hidden="true" class="fa fa-instagram"></i
         ></a>
       </figure>
     </div>
     <div class="instagram">
       <figure>
-        <img src="../assets/extra-images/instagram-img12.jpg" alt="" />
-        <a
-          href="../assets/extra-images/instagram-img12.jpg"
-          data-rel="prettyPhoto"
-        ><i class="fa fa-instagram" aria-hidden="true"></i
+        <img alt="" src="../assets/extra-images/instagram-img12.jpg" />
+        <a data-rel="prettyPhoto" href="../assets/extra-images/instagram-img12.jpg"
+          ><i aria-hidden="true" class="fa fa-instagram"></i
         ></a>
       </figure>
     </div>
     <div class="instagram">
       <figure>
-        <img src="../assets/extra-images/instagram-img13.jpg" alt="" />
-        <a
-          href="../assets/extra-images/instagram-img13.jpg"
-          data-rel="prettyPhoto"
-        ><i class="fa fa-instagram" aria-hidden="true"></i
+        <img alt="" src="../assets/extra-images/instagram-img13.jpg" />
+        <a data-rel="prettyPhoto" href="../assets/extra-images/instagram-img13.jpg"
+          ><i aria-hidden="true" class="fa fa-instagram"></i
         ></a>
       </figure>
     </div>
     <div class="instagram">
       <figure>
-        <img src="../assets/extra-images/instagram-img04.jpg" alt="" />
-        <a
-          href="../assets/extra-images/instagram-img14.jpg"
-          data-rel="prettyPhoto"
-        ><i class="fa fa-instagram" aria-hidden="true"></i
+        <img alt="" src="../assets/extra-images/instagram-img04.jpg" />
+        <a data-rel="prettyPhoto" href="../assets/extra-images/instagram-img14.jpg"
+          ><i aria-hidden="true" class="fa fa-instagram"></i
         ></a>
       </figure>
     </div>

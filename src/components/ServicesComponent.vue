@@ -8,12 +8,12 @@
               <div class="items-wrapper">
                 <div class="item active">
                   <svg
-                    width="80"
                     height="70"
-                    xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 511.995 511.995"
+                    width="80"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <g stroke="#666" stroke-width="10" fill="none">
+                    <g fill="none" stroke="#666" stroke-width="10">
                       <path
                         d="M370.06,58.095C339.771,26.592,299.361,9.243,256.278,9.243c-43.088,0-83.493,17.348-113.787,48.852
 															c-62.308,64.806-62.308,170.241-0.022,235.013l101.391,105.872c3.165,3.305,7.54,5.176,12.116,5.182c0.006,0,0.017,0,0.022,0
@@ -38,10 +38,7 @@
               </div>
             </div>
             <h4><a href="#">ESCOLHA O QUE FAZER</a></h4>
-            <p>
-              Nosso sistema de hotelaria oferece uma experiência única para sua
-              viagem.
-            </p>
+            <p>Nosso sistema de hotelaria oferece uma experiência única para sua viagem.</p>
           </div>
         </div>
         <div class="col-md-4 col-sm-6 col-xs-12">
@@ -50,12 +47,12 @@
               <div class="items-wrapper">
                 <div class="item">
                   <svg
+                    height="70"
                     viewBox="0 0 128 128"
                     width="80"
-                    height="70"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <g stroke="#666" stroke-width="3" fill="none">
+                    <g fill="none" stroke="#666" stroke-width="3">
                       <path
                         d="M8,112V16c0-4.414,3.594-8,8-8h80c4.414,0,8,3.586,8,8v47.031l8-8V16c0-8.836-7.164-16-16-16H16C7.164,0,0,7.164,0,16v96
 															c0,8.836,7.164,16,16,16h44v-8H16C11.594,120,8,116.414,8,112z M88,24H24v8h64V24z M88,40H24v8h64V40z M88,56H24v8h64V56z M24,80
@@ -76,10 +73,7 @@
               </div>
             </div>
             <h4><a href="#">ENCONTRE O QUE VOCÊ DESEJA</a></h4>
-            <p>
-              Facilitando reservas, organizando seu itinerário e oferecendo
-              suporte 24/7
-            </p>
+            <p>Facilitando reservas, organizando seu itinerário e oferecendo suporte 24/7</p>
           </div>
         </div>
         <div class="col-md-4 col-sm-6 col-xs-12">
@@ -88,12 +82,12 @@
               <div class="items-wrapper">
                 <div class="item">
                   <svg
+                    height="70"
                     viewBox="0 0 496 496"
                     width="80"
-                    height="70"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <g stroke="#666" stroke-width="8" fill="none">
+                    <g fill="none" stroke="#666" stroke-width="8">
                       <path
                         d="M424.512,411.608c-7.48-23.928-23.896-44.016-45.568-56.312C382.16,349.488,384,342.896,384,336v-8h-78.608
 															c7.264-4.36,14.016-9.48,20.096-15.32c4.304,1.216,8.696,1.84,13.056,1.84c12.48,0,24.712-4.88,33.904-14.072
@@ -171,10 +165,7 @@
               </div>
             </div>
             <h4><a href="#">APROVEITE SUA VIAGEM</a></h4>
-            <p>
-              Cuidamos de cada detalhe da sua viagem para você relaxar e
-              aproveitar.
-            </p>
+            <p>Cuidamos de cada detalhe da sua viagem para você relaxar e aproveitar.</p>
           </div>
         </div>
       </div>
