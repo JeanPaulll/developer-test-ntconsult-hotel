@@ -17,7 +17,7 @@
                   <label>Destino</label>
                   <div class="ralative-icon">
                     <input
-                      v-model="destination"
+                      v-model="form.destination"
                       class="location-finder"
                       placeholder="Cidade, Região, País, ponto de referência, Hotel..."
                       type="text"
@@ -31,7 +31,7 @@
                       <div class="kode_felid">
                         <label>Data de check-in</label>
                         <div class="ralative-icon">
-                          <input v-model="checkInDate" class="checkin" type="date" />
+                          <flat-pickr v-model="form.checkInDate" :config="config"></flat-pickr>
                           <span class="fa fa-calendar"></span>
                         </div>
                       </div>
@@ -39,10 +39,7 @@
                     <div class="col-md-6 col-xs-12 col-sm-6">
                       <div class="kode_felid">
                         <label>Data de check-out</label>
-                        <div class="ralative-icon">
-                          <input v-model="checkOutDate" class="checkout" type="date" />
-                          <span class="fa fa-calendar"></span>
-                        </div>
+                        <flat-pickr v-model="form.checkOutDate" :config="config"></flat-pickr>
                       </div>
                     </div>
                     <div class="col-md-9">
@@ -51,17 +48,25 @@
                           <div class="col-md-4 col-xs-12 col-sm-6">
                             <div class="kode_felid">
                               <label>Quartos</label>
-                              <select v-model.number="rooms" class="select">
-                                <option v-for="n in 10" :key="n" :value="n">{{ n }}</option>
-                              </select>
+                              <v-select
+                                v-model="form.rooms"
+                                :items="guestsOptions"
+                                outlined
+                                dense
+                              ></v-select>
+                              <p>Você selecionou {{ form.rooms }} quarto{{ form.rooms > 1 ? 's.' : '' }}</p>
                             </div>
                           </div>
                           <div class="col-md-4 col-xs-12 col-sm-6">
                             <div class="kode_felid">
-                              <label>Hóspedes</label>
-                              <select v-model.number="guests" class="select">
-                                <option v-for="n in 10" :key="n" :value="n">{{ n }}</option>
-                              </select>
+                              <label for="guests">Número de Hóspedes:</label>
+                              <v-select
+                                v-model="form.guests"
+                                :items="guestsOptions"
+                                outlined
+                                dense
+                              ></v-select>
+                              <p>Você selecionou {{ form.guests }} hóspede{{ form.guests > 1 ? 's.' : '' }}</p>
                             </div>
                           </div>
                         </div>
@@ -74,6 +79,12 @@
                         </button>
                       </div>
                     </div>
+                    <!--                    <div class="col-md-12">-->
+                    <!--                      <h1>Debug</h1>-->
+                    <!--                      <pre>-->
+                    <!--                        {{ form }}-->
+                    <!--                      </pre>-->
+                    <!--                    </div>-->
                   </div>
                 </div>
               </div>
@@ -83,48 +94,147 @@
       </div>
     </div>
   </form>
+  <div class="pa-4">
+    <v-dialog
+      v-model="state.dialog"
+      width="auto"
+    >
+      <v-card
+        max-width="400"
+        prepend-icon="mdi-update"
+        :text="state?.messageError"
+      >
+        <template v-slot:actions>
+          <v-btn
+            class="ms-auto"
+            text="Ok"
+            @click="state.dialog = false"
+          ></v-btn>
+        </template>
+      </v-card>
+    </v-dialog>
+  </div>
 </template>
-
 <script lang="ts">
+interface IState {
+  loading: boolean,
+  messageError: string,
+  dialog: boolean
+}
+
 import { Component, Prop, Vue } from 'vue-facing-decorator'
+import flatPickr from 'vue-flatpickr-component'
+import 'flatpickr/dist/flatpickr.css'
+import { Portuguese } from 'flatpickr/dist/l10n/pt.js'
 
-@Component({})
+@Component({
+  components: {
+    flatPickr
+  }
+})
 export default class SearchComponent extends Vue {
-  @Prop({ default: 'FORMULÁRIO DE RESERVA DE HOTEL' }) title!: string
+  @Prop({ default: 'Formulário de Reserva de Hotel' }) title!: string
+  public config = {
+    locale: Portuguese,
+    dateFormat: 'd/m/Y'
+  }
+  public guestsOptions = Array.from({ length: 10 }, (_, i) => i + 1)
+  public form = {
+    destination: '',
+    checkInDate: '' as Date | string,
+    checkOutDate: '' as Date | string,
+    rooms: 1,
+    guests: 1
+  }
 
-  // Atributos com data-binding
-  public destination: string = ''
-  public checkInDate: string = ''
-  public checkOutDate: string = ''
-  public rooms: number = 1
-  public guests: number = 1
+  get isValidDateRange(): boolean {
+    const checkInDate = this.parseDate(this.form.checkInDate! as string)
+    const checkOutDate = this.parseDate(this.form.checkOutDate! as string)
+    if (!checkInDate || !checkOutDate) {
+      return false
+    }
+    const checkInTimestamp = checkInDate.getTime()
+    const checkOutTimestamp = checkOutDate.getTime()
+    if (checkInTimestamp > checkOutTimestamp) {
+      this.state = { dialog: true, messageError: 'A data de check-in deve ser anterior à data de check-out.' }
+      return false
+    }
+    if (checkInTimestamp === checkOutTimestamp) {
+      return true
+    }
+    return true
+  }
 
-  handleSubmit() {
-    // Validação básica
-    if (!this.destination) {
-      alert('Por favor, insira um destino.')
-      return
+  /**
+   * @private
+   */
+  private _state: IState = {
+    loading: false,
+    messageError: ''
+  }
+
+  get state(): IState {
+    return this._state
+  }
+
+  /**
+   * @param newState
+   */
+  set state(newState: Partial<IState>) {
+    this._state = { ...this._state, ...newState }
+  }
+
+  /**
+   * @description Método para resetar o formulário
+   */
+  resetForm() {
+    this.form = {
+      destination: '',
+      checkInDate: '',
+      checkOutDate: '',
+      rooms: 1,
+      guests: 1
+    }
+  }
+
+  public handleSubmit(): void {
+    if (this.validatingForm()) {
+      // Lógica para submit
+      console.log('Formulário válido, submetendo...', this.form)
+      this.resetForm()
+    }
+  }
+
+  private addDays(date: Date, days: number): Date {
+    const result = new Date(date)
+    result.setDate(result.getDate() + days)
+    return result
+  }
+
+  private validatingForm(): boolean {
+    if (!this.form.destination) {
+      this.state = { dialog: true, messageError: 'Por favor, insira um destino.' }
+      return false
     }
 
-    if (!this.checkInDate || !this.checkOutDate) {
-      alert('Por favor, insira as datas de check-in e check-out.')
-      return
+    if (!this.form.checkInDate || !this.form.checkOutDate) {
+      this.state = { dialog: true, messageError: 'Por favor, insira as datas de check-in e check-out.' }
+      return false
     }
 
-    if (new Date(this.checkInDate) > new Date(this.checkOutDate)) {
-      alert('A data de check-in deve ser anterior à data de check-out.')
-      return
-    }
+    return this.isValidDateRange
+  }
 
-    // Submeter dados
-    const searchData = {
-      destination: this.destination,
-      checkInDate: this.checkInDate,
-      checkOutDate: this.checkOutDate,
-      rooms: this.rooms,
-      guests: this.guests
+  private parseDate(dateString: string = ''): Date | null {
+    const [day, month, year] = dateString.split('/').map(Number)
+    if (isNaN(day) || isNaN(month) || isNaN(year)) {
+      return null
     }
-    console.log('Dados do formulário:', searchData)
+    return new Date(year, month - 1, day)
+  }
+
+  created() {
+    console.log('Created chamado')
   }
 }
 </script>

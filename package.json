@@ -16,10 +16,12 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "flatpickr": "^4.6.13",
     "pinia": "^2.1.7",
     "vite-plugin-vuetify": "^2.0.3",
     "vue": "^3.4.21",
     "vue-facing-decorator": "^3.0.4",
+    "vue-flatpickr-component": "^11.0.5",
     "vue-router": "^4.3.0",
     "vuetify": "^3.6.9"
   },
