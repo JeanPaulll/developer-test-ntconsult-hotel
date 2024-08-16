@@ -2,7 +2,7 @@
   <div class="banner-slider">
     <div class="items">
       <div class="banner-img banner-overlay">
-        <img alt="Pousada com coqueiros" src="../assets/images/travel-footer-bg1.jpg" />
+        <img alt="Pousada com coqueiros" src="../assets/images/bg.png" />
       </div>
     </div>
   </div>

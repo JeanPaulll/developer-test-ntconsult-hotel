@@ -77,12 +77,12 @@
                         </button>
                       </div>
                     </div>
-                    <!--                    <div class="col-md-12">-->
-                    <!--                      <h1>Debug</h1>-->
-                    <!--                      <pre>-->
-                    <!--                        {{ form }}-->
-                    <!--                      </pre>-->
-                    <!--                    </div>-->
+                    <div class="col-md-12">
+                      <h1>Debug</h1>
+                      <pre>
+                        {{ form }}
+                      </pre>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -260,14 +260,6 @@ export default class SearchComponent extends Vue {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-
-.select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
 .submit-form button {
   width: 100%;
   padding: 10px;
