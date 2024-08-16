@@ -1,4 +1,6 @@
 # developer-ntconsult-hotel
+#https://ntconsult-hotel-test-developer.netlify.app/
+[![Netlify Status](https://api.netlify.com/api/v1/badges/cc378d2c-80dc-46a5-9025-45a2d52ee326/deploy-status)](https://app.netlify.com/sites/ntconsult-hotel-test-developer/deploys)
 
 This template should help get you started developing with Vue 3 in Vite.
 
