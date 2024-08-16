@@ -542,7 +542,6 @@
   min-width: 160px;
   list-style: none;
   background-color: #fff;
-  border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.2);
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -553,8 +552,6 @@
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding;
   background-clip: padding-box;
-  *border-right-width: 2px;
-  *border-bottom-width: 2px;
   color: #333;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 13px;

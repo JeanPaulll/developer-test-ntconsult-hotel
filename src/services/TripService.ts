@@ -2,7 +2,6 @@ import type { Trip } from '@/models/Trip'
 import { tripsMock } from '@/services/TripMock'
 
 export class TripService {
-
   static getTrips(): Trip[] {
     return tripsMock
   }
@@ -25,6 +24,6 @@ export class TripService {
   }
 
   static deleteTrip(id: number): void {
-     tripsMock.filter((trip: Trip) => trip.id !== id)
+    tripsMock.filter((trip: Trip) => trip.id !== id)
   }
 }

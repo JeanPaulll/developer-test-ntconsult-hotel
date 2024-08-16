@@ -361,7 +361,6 @@ google.maps.event.addListener(infowindow, 'domready', function () {
     $(this).css({ opacity: '1' })
   })
 })
-
 ;[
   {
     elementType: 'geometry',

@@ -1,6 +1,6 @@
 import type { Trip } from '@/models/Trip'
 
-export let tripsMock: Trip[] = [
+export const tripsMock: Trip[] = [
   {
     id: 1,
     destination: 'Rio de Janeiro',
@@ -112,7 +112,8 @@ export let tripsMock: Trip[] = [
   {
     id: 10,
     destination: 'Belo Horizonte',
-    description: 'Descubra a capital mineira, conhecida por sua hospitalidade e culinária incrível.',
+    description:
+      'Descubra a capital mineira, conhecida por sua hospitalidade e culinária incrível.',
     reviewsCount: 720,
     roomsCount: 95,
     guests: 2,
@@ -124,7 +125,8 @@ export let tripsMock: Trip[] = [
   {
     id: 11,
     destination: 'Porto Alegre',
-    description: 'Aprecie o charme do sul do Brasil, com sua rica cultura e paisagens deslumbrantes.',
+    description:
+      'Aprecie o charme do sul do Brasil, com sua rica cultura e paisagens deslumbrantes.',
     reviewsCount: 800,
     roomsCount: 100,
     guests: 3,
@@ -145,4 +147,4 @@ export let tripsMock: Trip[] = [
     checkOutDate: '2024-06-20',
     price: 1850.5
   }
-];
+]

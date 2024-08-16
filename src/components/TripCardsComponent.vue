@@ -5,7 +5,7 @@
         <div class="content-gallery tab-content">
           <div id="grid-tab-1" class="tab-pane fade in active" role="tabpanel">
             <div class="row">
-              <TripCard v-for="trip in trips" :key="trip.id" :trip="trip" />
+              <TripCardComponent v-for="trip in trips" :key="trip.id" :trip="trip" />
             </div>
           </div>
         </div>
@@ -16,13 +16,13 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-facing-decorator'
 
-import TripCard from '@/components/TripCardComponent.vue'
+import TripCardComponent from '@/components/TripCardComponent.vue'
 import type { Trip } from '@/models/Trip'
 
 @Component({
-  components: { TripCard }
+  components: { TripCardComponent }
 })
-export default class TripCards extends Vue {
+export default class TripCardsComponent extends Vue {
   @Prop({ required: true }) trips!: Trip[]
 }
 </script>

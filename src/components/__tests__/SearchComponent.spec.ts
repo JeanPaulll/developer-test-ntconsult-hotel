@@ -8,7 +8,7 @@ import * as directives from 'vuetify/directives'
 
 const vuetify = createVuetify({
   components,
-  directives,
+  directives
 })
 
 describe('SearchComponent', () => {
@@ -17,8 +17,8 @@ describe('SearchComponent', () => {
   beforeEach(() => {
     wrapper = mount(SearchComponent, {
       global: {
-        plugins: [vuetify],
-      },
+        plugins: [vuetify]
+      }
     })
   })
 
@@ -46,7 +46,9 @@ describe('SearchComponent', () => {
     await wrapper.vm.handleSubmit()
     await nextTick()
     expect(wrapper.vm.state.dialog).toBe(true)
-    expect(wrapper.vm.state.messageError).toBe('Por favor, insira as datas de check-in e check-out.')
+    expect(wrapper.vm.state.messageError).toBe(
+      'Por favor, insira as datas de check-in e check-out.'
+    )
   })
 
   it('deve submeter o formulário corretamente quando todos os campos estão preenchidos', async () => {

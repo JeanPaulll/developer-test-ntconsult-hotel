@@ -53,7 +53,7 @@ import { Component, Prop, Vue } from 'vue-facing-decorator'
 import type { Trip } from '@/models/Trip'
 
 @Component({})
-export default class TripCard extends Vue {
+export default class TripCardComponent extends Vue {
   @Prop({ required: true }) trip!: Trip
 
   public formatDate(date: string): string {

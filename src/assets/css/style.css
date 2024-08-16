@@ -5817,7 +5817,6 @@ ul.bk-meta2 li span {
 }
 
 .kf_blog-02 figure:before {
-    background-image: url("images/waves-border.png");
     background-position: center right;
     background-repeat: repeat-x;
     background-size: cover;

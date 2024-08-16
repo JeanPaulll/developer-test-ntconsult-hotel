@@ -10,12 +10,9 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-facing-decorator'
-import TripCard from '@/components/TripCardComponent.vue'
 import type { Banner } from '@/models/Banner'
 
-@Component({
-  components: { TripCard }
-})
+@Component({})
 export default class BannerComponent extends Vue {
   @Prop({ type: Array, required: false }) banners!: Banner[]
 }

@@ -4,32 +4,32 @@
     <div class="content">
       <SearchComponent />
       <ServicesComponent />
-      <TripCards :trips="trips" />
+      <TripCardsComponent :trips="trips" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-facing-decorator'
-import HeaderComponent from '@/components/HeaderComponent.vue'
 import SearchComponent from '@/components/SearchComponent.vue'
 import ServicesComponent from '@/components/ServicesComponent.vue'
 import TripCard from '@/components/TripCardComponent.vue'
 import TripCards from '@/components/TripCardsComponent.vue'
 import BannerComponent from '@/components/BannerComponent.vue'
 import { useTripStore } from '@/stores/tripStore'
+import TripCardsComponent from '@/components/TripCardsComponent.vue'
 
 @Component({
   components: {
+    TripCardsComponent,
     BannerComponent,
     TripCards,
     TripCard,
     ServicesComponent,
-    SearchComponent,
-    HeaderComponent
+    SearchComponent
   }
 })
-export default class Home extends Vue {
+export default class HomeViewComponent extends Vue {
   private tripStore = useTripStore()
 
   get trips() {
