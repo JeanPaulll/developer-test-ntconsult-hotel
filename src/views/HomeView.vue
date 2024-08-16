@@ -1,5 +1,4 @@
 <template>
-  <HeaderComponent title="Seja bem vindo!" />
   <div class="wrapper">
     <BannerComponent :banners="[]" />
     <div class="content">
@@ -7,7 +6,6 @@
       <ServicesComponent />
       <TripCards :trips="trips" />
     </div>
-    <SliderComponent :slides="[]" />
   </div>
 </template>
 
@@ -19,12 +17,10 @@ import ServicesComponent from '@/components/ServicesComponent.vue'
 import TripCard from '@/components/TripCardComponent.vue'
 import TripCards from '@/components/TripCardsComponent.vue'
 import BannerComponent from '@/components/BannerComponent.vue'
-import SliderComponent from '@/components/SliderComponent.vue'
 import { useTripStore } from '@/stores/tripStore'
 
 @Component({
   components: {
-    SliderComponent,
     BannerComponent,
     TripCards,
     TripCard,

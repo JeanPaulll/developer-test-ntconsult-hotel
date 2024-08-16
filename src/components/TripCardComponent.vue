@@ -3,8 +3,8 @@
     <div class="kf_column_trip hover-effect-01">
       <div class="kf_column-figure">
         <figure>
-          <a data-rel="prettyPhoto" href="../assets/extra-images/blog-img1.jpg">
-            <img alt="Hotel A" src="../assets/extra-images/blog-img1.jpg" />
+          <a data-rel="prettyPhoto" :href="trip.imageUrl">
+            <img alt="Hotel A" :src="trip.imageUrl" />
           </a>
           <div class="hover-content-01"></div>
           <figcaption v-if="trip?.checkInDate && trip?.checkOutDate">

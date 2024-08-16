@@ -2,16 +2,7 @@
   <div class="banner-slider">
     <div class="items">
       <div class="banner-img banner-overlay">
-        <img alt="banner img 1" src="../assets/extra-images/banner-01.jpg" />
-      </div>
-      <div class="container banner-caption position-left">
-        <div class="title-1 animated"><strong>Primeiro Texto</strong></div>
-        <div class="title-1 animated">Segundo Texto</div>
-        <div class="title-3 animated">
-          Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto
-        </div>
-        <a class="btn-normal-1 animated effect2-color-1" href="#">Açao 1</a>
-        <a class="btn-normal-1 animated effect2-color-2" href="#">Açao 2</a>
+        <img alt="Pousada com coqueiros" src="../assets/images/travel-footer-bg1.jpg" />
       </div>
     </div>
   </div>
@@ -30,4 +21,8 @@ export default class BannerComponent extends Vue {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.slick-slide {
+  height: 50%;
+}
+</style>

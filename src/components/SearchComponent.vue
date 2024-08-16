@@ -9,9 +9,7 @@
               class="kode_write_detail search-img01 tab-pane fade active"
               role="tabpanel"
             >
-              <h5 class="title-icon">
-                <span class="icon-travel"></span><b>{{ title }}</b>
-              </h5>
+              <h5 class="title-icon"><b>{{ title }}</b></h5>
               <div class="booking_content">
                 <div class="kode_felid">
                   <label>Destino</label>
