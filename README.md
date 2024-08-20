@@ -41,7 +41,7 @@ O projeto está disponível para teste no seguinte link:
 - **Framework:** Utilizado Nuxt 3 para construir a aplicação, aproveitando a Composition API para uma estrutura de código mais organizada.
 - **Linguagem:** TypeScript foi utilizado para tipagem estática, garantindo maior segurança e qualidade no desenvolvimento.
 - **Gerenciamento de Estado:** Pinia foi utilizado para gerenciar a autenticação e outras funcionalidades relacionadas ao estado da aplicação.
-- **Estilização:** Tailwind CSS foi utilizado para estilizar as páginas, proporcionando uma interface moderna e responsiva.
+- **Estilização:** Tailwind (Não aplicado) CSS foi utilizado para estilizar as páginas, proporcionando uma interface moderna e responsiva.
 - **Mock de API:** Implementadas chamadas de API simuladas via SSR para busca e reserva de hotéis.
 - **Otimização:** Aplicação otimizada com Lazy Loading e Code Splitting para melhorar o desempenho.
 - **CI/CD:** Pipeline básico de CI/CD configurado utilizando GitHub Actions para automatizar testes e deploys.
