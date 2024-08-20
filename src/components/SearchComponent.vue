@@ -221,7 +221,10 @@ export default class SearchComponent extends Vue {
    */
   private _state: IState = {
     loading: false,
-    messageError: ''
+    messageError: '',
+    dialog: false,
+    ordination: '',
+    cart: []
   }
 
   get state(): IState {

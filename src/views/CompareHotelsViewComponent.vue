@@ -30,7 +30,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-facing-decorator'
+import { Component, Vue } from 'vue-facing-decorator'
 import SearchComponent from '@/components/SearchComponent.vue'
 import ServicesComponent from '@/components/ServicesComponent.vue'
 import TripCard from '@/components/TripCardComponent.vue'
@@ -38,7 +38,6 @@ import TripCards from '@/components/TripCardsComponent.vue'
 import BannerComponent from '@/components/BannerComponent.vue'
 import { useTripStore } from '@/stores/tripStore'
 import TripCardsComponent from '@/components/TripCardsComponent.vue'
-import type { Trip } from '@/models/Trip'
 import { useCartStore } from '@/stores/useCartStore'
 import { useRouter } from 'vue-router'
 

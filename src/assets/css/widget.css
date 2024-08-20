@@ -49,8 +49,8 @@ body.mode-search .control-search .btn {
   height: 80px;
   position: absolute;
   top: 50%;
-  left: 0px;
-  right: 0px;
+  left: 0;
+  right: 0;
   margin-top: -40px;
   pointer-events: none;
   opacity: 0;
@@ -82,7 +82,7 @@ body.mode-search .kf-search-menu input {
 }
 
 .kf-search-menu input:focus ~ button {
-  right: 0px;
+  right: 0;
   -moz-transform: rotateY(0deg);
   -o-transform: rotateY(0deg);
   -webkit-transform: rotateY(0deg);
@@ -146,7 +146,7 @@ body.mode-search .kf-search-menu input {
 }
 
 div.label-effect input {
-  padding: 0 0 0 0px;
+  padding: 0 0 0 0;
   width: 100%;
   border: none;
   height: 48px;
@@ -191,13 +191,13 @@ div.label-effect input:focus {
   text-align: center;
   width: 6%;
   float: left;
-  padding: 12px 0px;
+  padding: 12px 0;
   font-size: 18px;
 }
 
 .label-effect span i {
-  left: 0px;
-  right: 0px;
+  left: 0;
+  right: 0;
   position: relative;
   color: #4c565e;
 }
@@ -220,7 +220,7 @@ div.label-effect input:focus {
   color: #494949;
   text-transform: capitalize;
   display: inline-block;
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 
 /*================    Template checkbox    ================*/
@@ -231,8 +231,8 @@ div.label-effect input:focus {
 .checkbox-02 label:before {
   position: absolute;
   content: '';
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
   width: 24px;
   font-family: fontawesome;
   height: 24px;
@@ -279,7 +279,7 @@ div.label-effect input:focus {
   font-size: 16px;
   text-transform: capitalize;
   color: #fff;
-  padding: 15px 0px;
+  padding: 15px 0;
   font-weight: 600;
 }
 
@@ -307,7 +307,7 @@ div.label-effect input:focus {
   display: inline-block;
   background: #7197e1;
   color: #fff;
-  padding: 15px 0px;
+  padding: 15px 0;
   width: 100%;
   font-size: 22px;
 }
@@ -319,7 +319,7 @@ div.label-effect input:focus {
 .google-plus a {
   background: #ffffff;
   color: #ec4d3b;
-  padding: 15px 0px;
+  padding: 15px 0;
   width: 100%;
 }
 
@@ -356,7 +356,7 @@ div.label-effect input:focus {
   float: left;
   width: 100%;
   position: relative;
-  margin: 0px;
+  margin: 0;
   overflow: hidden;
 }
 
@@ -365,9 +365,9 @@ div.label-effect input:focus {
   position: absolute;
   content: '';
   top: -100px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
+  left: 0;
+  right: 0;
+  bottom: 0;
   opacity: 0;
 }
 
@@ -384,7 +384,7 @@ div.label-effect input:focus {
   position: absolute;
   top: 50%;
   left: -20px;
-  right: 0px;
+  right: 0;
   margin: -18px auto;
   text-align: center;
   z-index: 99;
@@ -393,19 +393,18 @@ div.label-effect input:focus {
 
 .widget-gallery li:hover figure:before,
 .instagram:hover figure:before {
-  top: 0px;
+  top: 0;
   opacity: 0.9;
 }
 
 .widget-gallery li:hover figure a,
 .instagram:hover figure a {
-  left: 0px;
+  left: 0;
   opacity: 1;
 }
 
 /*================    Template footer    ================*/
 .travel-footer {
-  background: url(../images/travel-footer-bg1.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -424,7 +423,7 @@ div.label-effect input:focus {
 }
 
 footer .widget {
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 
 .widget {
@@ -477,7 +476,7 @@ footer .kf_keep_connect h5 {
 
 .text-felid button {
   position: absolute;
-  right: 0px;
+  right: 0;
   top: 0%;
   border: none;
   padding: 11.5px 30px 10.5px;
@@ -535,7 +534,7 @@ footer .text-felid input::-webkit-placeholder {
   display: inline-block;
   font-size: 15px;
   text-transform: capitalize;
-  padding: 2px 0px 0px 0px;
+  padding: 2px 0px 0px 0;
 }
 
 /*================    Copyrights cradit cards   ================*/
@@ -550,7 +549,7 @@ footer .text-felid input::-webkit-placeholder {
 }
 
 .kf_cradit_cards li:last-child {
-  margin-right: 0px;
+  margin-right: 0;
 }
 
 .kf_cradit_cards li a {
@@ -566,7 +565,7 @@ footer .text-felid input::-webkit-placeholder {
 /*================    SVG icons creater   ================*/
 .jq-ry-container {
   position: relative;
-  padding: 0 0px;
+  padding: 0 0;
   line-height: 0;
   display: block;
   cursor: pointer;
@@ -621,7 +620,7 @@ footer .text-felid input::-webkit-placeholder {
 }
 
 .width-50:last-of-type {
-  margin-right: 0px;
+  margin-right: 0;
 }
 
 .width-50 img,

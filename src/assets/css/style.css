@@ -102,7 +102,7 @@ div.selectric .label {
 
 .kf_element_right {
     float: right;
-    padding: 12px 0px;
+    padding: 12px 0;
 }
 
 .kf_element_right .kf_meta a {
@@ -112,12 +112,12 @@ div.selectric .label {
 .header_v1_slider {
     display: inline-block;
     width: 75%;
-    padding: 13px 0px;
+    padding: 13px 0;
 }
 
 .fade-slider p {
     color: #fff;
-    margin-bottom: 0px;
+    margin-bottom: 0;
     text-transform: capitalize;
 }
 
@@ -134,8 +134,8 @@ div.selectric .label {
 .logo-here h1 {
     display: inline-block;
     width: 100%;
-    line-height: 0px;
-    margin-bottom: 0px;
+    line-height: 0;
+    margin-bottom: 0;
 }
 
 .logo-here h1 a {
@@ -147,7 +147,7 @@ div.selectric .label {
 .header-v1_navigation_row {
     float: left;
     width: 100%;
-    padding: 20px 0px;
+    padding: 20px 0;
 }
 
 .navigation {
@@ -203,7 +203,7 @@ div.selectric .label {
 ul.children {
     position: absolute;
     top: 100%;
-    left: 0px;
+    left: 0;
     width: 220px;
     visibility: hidden;
     opacity: 0;
@@ -221,12 +221,12 @@ ul.children {
 .sub-menu:before {
     position: absolute;
     content: "";
-    top: 0px;
-    margin: 0px -16px 0px;
+    top: 0;
+    margin: 0px -16px 0;
 }
 
 .sub-menu:after {
-    left: 0px;
+    left: 0;
     width: 0;
     height: 0;
     border-style: solid;
@@ -236,8 +236,8 @@ ul.children {
 
 .sub-menu li a:after {
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: 0;
+    right: 0;
     content: "";
     height: 0%;
     border-right: 4px solid #f5600c;
@@ -273,7 +273,7 @@ ul.children {
 }
 
 .sub-menu:before {
-    right: 0px;
+    right: 0;
     width: 0;
     height: 0;
     border-style: solid;
@@ -315,7 +315,7 @@ ul.children li:hover a {
 
 .header-v1-right {
     float: right;
-    margin: 16px 0px;
+    margin: 16px 0;
 }
 
 .kf_side_menu_btn {
@@ -341,21 +341,10 @@ ul.children li:hover a {
     display: inline-block;
     color: #292929;
     padding: 8px 8px;
-    border-radius: 0px;
+    border-radius: 0;
     background: transparent;
 }
 
-/*
-	  ============================================================
-		   HEADER version.1 ends
-	  ============================================================
-*/
-
-/*
-	  ============================================================
-		   Easy TRAVEL BANNER  #Banner
-	  ============================================================
-*/
 .kode_banner {
     float: left;
     width: 100%;
@@ -376,8 +365,8 @@ ul.children li:hover a {
 .banner-caption {
     position: absolute;
     top: 50%;
-    left: 0px;
-    right: 0px;
+    left: 0;
+    right: 0;
     /*margin-top:-129px;*/
     margin-top: -186px;
     z-index: 12;
@@ -411,7 +400,7 @@ ul.children li:hover a {
 }
 
 .banner-caption a:last-child {
-    margin: 0px;
+    margin: 0;
 }
 
 .banner-slider .items.slick-slide.slick-current.slick-active .title-1 {
@@ -439,23 +428,10 @@ ul.children li:hover a {
     animation-name: slideInRight;
 }
 
-/*
-	  ============================================================
-		   TRAVEL BANNER END
-	  ============================================================
-*/
-
-
-/*
-	  ============================================================
-		   TRAVEL SUB BANNER  #Sub-banner
-	  ============================================================
-*/
 .sub-banner {
     float: left;
     width: 100%;
     position: relative;
-    background: url(../extra-images/sub-banner1.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     text-align: center;
@@ -475,10 +451,10 @@ ul.children li:hover a {
 .sub-banner:before {
     position: absolute;
     content: "";
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background: #000;
     opacity: 0.75;
 }
@@ -501,7 +477,7 @@ ul.children li:hover a {
 
 .sub-banner p {
     color: #fff;
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 .breadcrumb-blog {
@@ -513,7 +489,7 @@ ul.children li:hover a {
 
 .breadcrumb {
     padding: 3px 25px 1px;
-    margin: 0px;
+    margin: 0;
     text-align: center;
     float: none;
     display: inline-block;
@@ -591,7 +567,6 @@ ul.children li:hover a {
 .sub-banner-tour {
     float: left;
     width: 100%;
-    background: url(../extra-images/banner-tour-01.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
@@ -863,21 +838,9 @@ ul.children li:hover a {
 
 }
 
-/*
-	  ============================================================
-		   TRAVEL SEARCH ENGINE TRIP END
-	  ============================================================
-*/
-
-/*
-	  ============================================================
-		   TRAVEL SERVICES #Services
-	  ============================================================
-*/
 .travel_services_blog {
     float: left;
     width: 100%;
-    background: url(../images/search-bg/bg.png);
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
@@ -909,22 +872,6 @@ ul.children li:hover a {
 
 .search-img01:before {
     background-image: url(../images/search-bg/01.png);
-}
-
-.search-img02:before {
-    background-image: url(../images/search-bg/02.png);
-}
-
-.search-img03:before {
-    background-image: url(../images/search-bg/03.png);
-}
-
-.search-img04:before {
-    background-image: url(../images/search-bg/04.png);
-}
-
-.search-img05:before {
-    background-image: url(../images/search-bg/05.png);
 }
 
 .travel-service-column {
@@ -1263,14 +1210,12 @@ ul.children li:hover a {
 .booking-bottom li .dropdown-menu {
     width: 150px;
     border: none;
-    border-radius: none;
-    font-size: none;
     margin: -45px 0 0 -120%;
     min-width: auto;
-    top: 0px;
+    top: 0;
     z-index: 16;
-    left: 0px;
-    padding: 0px;
+    left: 0;
+    padding: 0;
 }
 
 .booking-bottom .dropdown-toggle:before,
@@ -1582,19 +1527,13 @@ ul.children li:hover a {
     position: relative;
 }
 
-.kf-expert-columns figure:before {
-    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 97%);
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 97%);
-}
-
 .zoom-in {
     position: absolute;
     top: 50%;
-    left: 0px;
-    margin: 0 auto;
-    right: 0px;
+    left: 0;
+    right: 0;
     text-align: center;
-    margin-top: -26px;
+    margin: -26px auto 0;
     opacity: 0;
     visibility: hidden;
 }
@@ -1620,20 +1559,6 @@ ul.children li:hover a {
     animation: radius-weaves 1.0s linear infinite;
 }
 
-@keyframes radius-weaves {
-    0% {
-        box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1), 0 0 0 0 rgba(255, 255, 255, 0.1), 0 0 0 5px rgba(255, 255, 255, 0.1), 0 0 0 10px rgba(255, 255, 255, 0.1)
-    }
-    35% {
-        box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1), 0 0 0 2 rgba(255, 255, 255, 0.1), 0 0 0 7px rgba(255, 255, 255, 0.1), 0 0 0 13px rgba(255, 255, 255, 0.1)
-    }
-    65% {
-        box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1), 0 0 0 4 rgba(255, 255, 255, 0.1), 0 0 0 9px rgba(255, 255, 255, 0.1), 0 0 0 16px rgba(255, 255, 255, 0.1)
-    }
-    100% {
-        box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1), 0 0 0 5px rgba(255, 255, 255,, 0.1), 0 0 0 10px rgba(255, 255, 255, 0.1), 0 0 0 20px rgba(255, 255, 255, 0)
-    }
-}
 
 .zoom-in a:hover {
     color: #fff;
@@ -1714,11 +1639,6 @@ ul.children li:hover a {
     opacity: 1;
 }
 
-/*
-	  ============================================================
-		   TRAVEL TESTIMONIAL #Testimonial
-	  ============================================================
-*/
 .kf_testimonial {
     float: left;
     width: 100%;
@@ -1726,8 +1646,7 @@ ul.children li:hover a {
 
 .kf_slide_items {
     float: left;
-    margin: 0px 15px;
-    margin-bottom: 30px;
+    margin: 0 15px 30px;
 }
 
 .slick-list.draggable {
@@ -1852,20 +1771,6 @@ ul.children li:hover a {
     text-align: right;
     padding: 16px 15px 0 0px;
 }
-
-/*
-	  ============================================================
-		   TRAVEL Summer vacations #summer-offers
-	  ============================================================
-*/
-.kf_summer_offers {
-    background: url(../images/offers-blog-bg.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 0px;
-    z-index: 1;
-}
-
 .kf_summer_offers .container {
     z-index: 99;
     position: relative;
@@ -2037,17 +1942,6 @@ ul.children li:hover a {
     width: 100%;
 }
 
-.kode_destination_banner {
-    float: left;
-    width: 100%;
-    padding: 70px 0px 0px;
-    background: url(../images/sub-banner-destinations.jpg);
-    background-size: no-repeat;
-    background-size: cover;
-    background-position: bottom;
-    position: relative;
-    z-index: 2;
-}
 
 .kode_destination_banner .container {
     position: relative;
@@ -2065,18 +1959,6 @@ ul.children li:hover a {
 .sub-banner-tour:before,
 .travel_attraction_content:before,
 .blog_elements:before,
-.tour-trip-visit:before {
-    position: absolute;
-    content: "";
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    top: 0px;
-    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.09) 0%, rgba(0, 0, 0, 0.97) 99%, rgba(0, 0, 0, 0.97) 100%);
-    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.09) 0%, rgba(0, 0, 0, 0.97) 99%, rgba(0, 0, 0, 0.97) 100%);
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.09) 0%, rgba(0, 0, 0, 0.97) 99%, rgba(0, 0, 0, 0.97) 100%);
-}
-
 .tour-trip-visit .play-tour:after,
 .tour-trip-visit .play-tour:before {
     position: absolute;
@@ -2678,26 +2560,6 @@ ul.children li:hover a {
     height: 570px;
 }
 
-.travel-attraction-place {
-    float: left;
-    width: 100%;
-    background: url(../images/pattren-img1.jpg);
-    position: relative;
-    z-index: 1;
-    padding-bottom: 0px;
-}
-
-.travel-attraction-place:before {
-    position: absolute;
-    content: "";
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    background: url(../images/pattern-bg.png);
-    z-index: -1;
-}
-
 .travel-attraction-place:before,
 .travel-attraction-place {
     background-size: cover;
@@ -3269,10 +3131,6 @@ blockquote:after {
 }
 
 .text-felid input::-moz-placeholder {
-    color: #666666;
-}
-
-.text-felid input::-webkit-placeholder {
     color: #666666;
 }
 
@@ -4045,10 +3903,6 @@ span.sm-title {
     color: #999999;
 }
 
-.booking-felids input[type="text"]::-webkit-placeholder {
-    color: #999999;
-}
-
 .booking-felids input[type="text"]::-moz-placeholder {
     color: #999999;
 }
@@ -4584,17 +4438,6 @@ ul.bk-meta2 li span {
     color: #666;
 }
 
-.form-textarea textarea::-o-placeholder,
-.form-content-2 .text-felid input::-o-placeholder {
-    font-weight: 600;
-    color: #666;
-}
-
-.form-textarea textarea::-webkit-placeholder,
-.form-content-2 .text-felid input::-webkit-placeholder {
-    font-weight: 600;
-    color: #666;
-}
 
 .simple-rateing {
     float: left;
@@ -4621,11 +4464,6 @@ ul.bk-meta2 li span {
     margin-bottom: 30px;
 }
 
-/*
-	  ============================================================
-		   TRAVEL 404 #404
-	  ============================================================
-*/
 .error-page {
     float: left;
     width: 100%;
@@ -4842,53 +4680,6 @@ ul.bk-meta2 li span {
     z-index: 2;
 }
 
-.image-01 {
-    background: url(../extra-images/blog-services-img01.jpg);
-}
-
-.image-02 {
-    background: url(../extra-images/blog-services-img02.jpg);
-}
-
-.image-03 {
-    background: url(../extra-images/blog-services-img03.jpg);
-}
-
-.image-04 {
-    background: url(../extra-images/blog-services-img04.jpg);
-}
-
-.image-05 {
-    background: url(../extra-images/blog-services-img07.jpg);
-}
-
-.image-06 {
-    background: url(../extra-images/blog-services-img08.jpg);
-}
-
-.image-07 {
-    background: url(../extra-images/blog-services-img09.jpg);
-}
-
-.image-08 {
-    background: url(../extra-images/blog-services-img10.jpg);
-}
-
-.image-09 {
-    background: url(../extra-images/blog-services-img11.jpg);
-}
-
-.image-10 {
-    background: url(../extra-images/blog-services-img12.jpg);
-}
-
-.image-11 {
-    background: url(../extra-images/blog-services-img13.jpg);
-}
-
-.image-12 {
-    background: url(../extra-images/blog-services-img14.jpg);
-}
 
 .slide:hover .default-img {
     -o-transform: scale(1.03) perspective(600px) rotateZ(0deg);
@@ -5211,7 +5002,6 @@ ul.bk-meta2 li span {
     float: left;
     width: 100%;
     position: relative;
-    background: url(../images/coming-soon-bg1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     z-index: 2;
@@ -5317,14 +5107,6 @@ ul.bk-meta2 li span {
 .form-commingsoon input {
     color: #fff;
     border-color: #fff;
-}
-
-.form-commingsoon input::-webkit-placeholder {
-    color: #fff;
-}
-
-.form-commingsoon input::-o-placeholder {
-    color: #fff;
 }
 
 .form-commingsoon input::-moz-placeholder {
@@ -5607,13 +5389,12 @@ ul.bk-meta2 li span {
     display: inline-block;
     position: relative;
     background: #42b1e8;
-    padding: 0p 2px;
+    padding: 0 2px;
     color: #fff;
     text-transform: capitalize;
     font-size: 12px;
-    padding: 0px 12px;
-    border-radius: 0px 5px 5px 0px;
-    box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 0 5px 5px 0;
+    box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.1);
 }
 
 .flag-top01:before {
@@ -6305,13 +6086,6 @@ ul.bk-meta2 li span {
 .kf_shop-column:hover .icon-bottom {
     color: #fff;
 }
-
-/*
-	  ============================================================
-		   Easy TRAVEL Style Sheet Ends   Best Of luck *****
-	  ============================================================
-*/
-
 
 .header-v2 {
     float: left;
