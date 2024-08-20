@@ -78,9 +78,7 @@ O projeto está disponível para teste no seguinte link:
   npm run test:unit
   ```
 
-
-<img src="./public/4.png" alt="Tela 4" width="400">
-
+- <img src="./public/4.png" alt="Tela 4">
 
 
 - Para executar os testes de integração (E2E):
