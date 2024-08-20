@@ -332,10 +332,6 @@ export default class SearchComponent extends Vue {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.travel_search_engine .container {
-  overflow: hidden;
-}
-
 .title-icon {
   font-size: 18px;
   margin-bottom: 20px;
