@@ -53,6 +53,10 @@ import { Component, Prop, Vue } from 'vue-facing-decorator'
 import type { Trip } from '@/models/Trip'
 import { useCartStore } from '@/stores/useCartStore'
 
+/**
+ * @author Jean Paul <jeanpaulwebb@gmail.com>
+ * @date 20/08/2024
+ */
 @Component({})
 export default class TripCardComponent extends Vue {
   @Prop({ required: true }) trip!: Trip

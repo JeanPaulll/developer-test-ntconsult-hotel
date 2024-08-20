@@ -178,6 +178,10 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-facing-decorator'
 
+/**
+ * @author Jean Paul <jeanpaulwebb@gmail.com>
+ * @date 20/08/2024
+ */
 @Component({})
 export default class ServicesComponent extends Vue {
   @Prop({ type: String, required: false }) title!: String

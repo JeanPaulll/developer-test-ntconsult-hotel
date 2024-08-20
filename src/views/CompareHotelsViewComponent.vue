@@ -28,7 +28,6 @@
     </div>
   </div>
 </template>
-
 <script lang="ts">
 import { Component, Vue } from 'vue-facing-decorator'
 import SearchComponent from '@/components/SearchComponent.vue'
@@ -41,6 +40,10 @@ import TripCardsComponent from '@/components/TripCardsComponent.vue'
 import { useCartStore } from '@/stores/useCartStore'
 import { useRouter } from 'vue-router'
 
+/**
+ * @author Jean Paul <jeanpaulwebb@gmail.com>
+ * @date 20/08/2024
+ */
 @Component({
   components: {
     TripCardsComponent,
@@ -84,9 +87,11 @@ export default class CompareHotelsViewComponent extends Vue {
 .first-trip {
   background-color: #0049872e;
 }
+
 .kf_reviews {
   margin-bottom: 1em;
 }
+
 .back {
   background-color: #007bff;
   cursor: pointer;
@@ -95,6 +100,7 @@ export default class CompareHotelsViewComponent extends Vue {
   border-radius: 0.5em;
   color: #fff;
 }
+
 .to-remove {
   background-color: red;
   color: #fff;

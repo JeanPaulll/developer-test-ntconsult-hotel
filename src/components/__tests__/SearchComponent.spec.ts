@@ -11,6 +11,10 @@ const vuetify = createVuetify({
   directives
 })
 
+/**
+ * @author Jean Paul <jeanpaulwebb@gmail.com>
+ * @date 20/08/2024
+ */
 describe('SearchComponent', () => {
   let wrapper: ReturnType<typeof mount>
 
@@ -20,7 +24,7 @@ describe('SearchComponent', () => {
 
     wrapper = mount(SearchComponent, {
       global: {
-        plugins: [vuetify, pinia],
+        plugins: [vuetify, pinia]
       }
     })
   })

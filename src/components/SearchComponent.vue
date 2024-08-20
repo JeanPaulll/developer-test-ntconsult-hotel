@@ -158,6 +158,10 @@ interface IState {
   cart: Trip[]
 }
 
+/**
+ * @author Jean Paul <jeanpaulwebb@gmail.com>
+ * @date 20/08/2024
+ */
 @Component({
   components: {
     flatPickr,

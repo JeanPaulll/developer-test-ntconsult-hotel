@@ -19,6 +19,10 @@ import BannerComponent from '@/components/BannerComponent.vue'
 import { useTripStore } from '@/stores/tripStore'
 import TripCardsComponent from '@/components/TripCardsComponent.vue'
 
+/**
+ * @author Jean Paul <jeanpaulwebb@gmail.com>
+ * @date 20/08/2024
+ */
 @Component({
   components: {
     TripCardsComponent,

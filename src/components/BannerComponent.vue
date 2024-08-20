@@ -12,6 +12,10 @@
 import { Component, Prop, Vue } from 'vue-facing-decorator'
 import type { Banner } from '@/models/Banner'
 
+/**
+ * @author Jean Paul <jeanpaulwebb@gmail.com>
+ * @date 20/08/2024
+ */
 @Component({})
 export default class BannerComponent extends Vue {
   @Prop({ type: Array, required: false }) banners!: Banner[]

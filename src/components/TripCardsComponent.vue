@@ -32,12 +32,15 @@
 </template>
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-facing-decorator'
-
 import TripCardComponent from '@/components/TripCardComponent.vue'
 import type { Trip } from '@/models/Trip'
 import { useCartStore } from '@/stores/useCartStore'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
+/**
+ * @author Jean Paul <jeanpaulwebb@gmail.com>
+ * @date 20/08/2024
+ */
 @Component({
   components: { FontAwesomeIcon, TripCardComponent }
 })
