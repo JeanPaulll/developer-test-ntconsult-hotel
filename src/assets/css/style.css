@@ -898,12 +898,12 @@ ul.children li:hover a {
 .kode_write_detail:before {
     position: absolute;
     content: "";
-    top: 0px;
+    top: 0;
     right: -15px;
-    bottom: 0px;
-    background-size: cover;
+    bottom: 0;
+    background-size: auto;
     background-position: right top;
-    width: 70%;
+    width: 120%;
     background-repeat: no-repeat;
 }
 

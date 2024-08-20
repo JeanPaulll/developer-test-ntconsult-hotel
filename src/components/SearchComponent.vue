@@ -100,6 +100,7 @@
             </div>
           </div>
         </div>
+        <div class="clearfix"></div>
         <div class="col-md-12 text-right mb-5 mt-5">
           <div class="row">
             <div class="col-md-6">
@@ -318,6 +319,10 @@ export default class SearchComponent extends Vue {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.travel_search_engine .container {
+  overflow: hidden;
 }
 
 .title-icon {
