@@ -52,7 +52,7 @@ export const tripsMock: Trip[] = [
   {
     id: 5,
     destination: 'Brasília',
-    description: 'Explore a capital do Brasil, com sua arquitetura moderna e monumentos icônicos.',
+    description: 'Explore a capital do Brasil, com sua arquitetura moderna e monumentos.',
     reviewsCount: 580,
     roomsCount: 90,
     guests: 3,
@@ -64,7 +64,7 @@ export const tripsMock: Trip[] = [
   {
     id: 6,
     destination: 'Manaus',
-    description: 'Descubra a porta de entrada para a Amazônia, com ecoturismo e aventuras únicas.',
+    description: 'Descubra a porta de entrada para a Amazônia, com ecoturismo e aventuras.',
     reviewsCount: 670,
     roomsCount: 70,
     guests: 2,

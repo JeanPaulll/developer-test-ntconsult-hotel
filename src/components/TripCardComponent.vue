@@ -3,8 +3,8 @@
     <div class="kf_column_trip hover-effect-01">
       <div class="kf_column-figure">
         <figure>
-          <a data-rel="prettyPhoto" :href="trip.imageUrl">
-            <img alt="Hotel A" :src="trip.imageUrl" />
+          <a :data-rel="trip?.destination">
+            <img :alt="trip?.destination" :src="trip.imageUrl" />
           </a>
           <div class="hover-content-01"></div>
           <figcaption v-if="trip?.checkInDate && trip?.checkOutDate">
@@ -42,7 +42,7 @@
         </ul>
       </div>
       <ul class="booking-bottom">
-        <li><a class="btn-blog" href="#"> Reserve Agora </a></li>
+        <li><a class="btn-blog" @click="addToCart(trip)"> Reserve Agora </a></li>
       </ul>
     </div>
   </div>
@@ -51,15 +51,16 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-facing-decorator'
 import type { Trip } from '@/models/Trip'
+import { useCartStore } from '@/stores/useCartStore'
 
 @Component({})
 export default class TripCardComponent extends Vue {
   @Prop({ required: true }) trip!: Trip
+  public cartStore = useCartStore()
 
-  public formatDate(date: string): string {
-    return new Date(date).toLocaleDateString('pt-BR')
-  }
-
+  /**
+   * @param value
+   */
   public formatCurrency(value: number): string {
     return new Intl.NumberFormat('pt-BR', {
       style: 'currency',
@@ -67,6 +68,17 @@ export default class TripCardComponent extends Vue {
     }).format(value)
   }
 
+  /**
+   * @param trip
+   */
+  public addToCart(trip: Trip): void {
+    this.cartStore.addToCart(trip)
+  }
+
+  /**
+   * @param checkInDate
+   * @param checkOutDate
+   */
   public calculateTripDuration(checkInDate: string, checkOutDate: string): string {
     const checkIn = new Date(checkInDate)
     const checkOut = new Date(checkOutDate)
@@ -87,5 +99,9 @@ export default class TripCardComponent extends Vue {
 
 .booking-bottom > li:first-child {
   width: 100%;
+}
+
+.btn-blog {
+  cursor: pointer;
 }
 </style>

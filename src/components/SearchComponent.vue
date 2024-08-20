@@ -75,17 +75,37 @@
                         <button class="btn-normal-1 animated effect2-color-1" type="submit">
                           Procure agora
                         </button>
+                        <button class="btn-normal-1 animated effect2-color-1" v-if="tripStore?.trips.length <= 0"
+                                @click="resetForm()">
+                          Limpar Pesquisa
+                        </button>
                       </div>
-                    </div>
-                    <div class="col-md-12">
-                      <h1>Debug</h1>
-                      <pre>
-                        {{ form }}
-                      </pre>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 text-right mb-5 mt-5">
+          <div class="row">
+            <div class="col-md-6">
+              <VueSelect
+                v-model="form.ordination"
+                :options="[
+                        { label: 'Todos', value: '4' },
+                        { label: 'Menor preço', value: '1' },
+                        { label: 'Maior preço', value: '2' },
+                        { label: 'Ordem alfabética', value: '3' },
+                        ]"
+                placeholder="Ordenar por"
+              />
+            </div>
+            <div class="col-md-6 text-right">
+              <button class="btn-normal-5 animated effect2-color-2" v-if="cartStore.cartCount > 0"
+                      @click="goCompareHotels()">
+                Compare hotéis
+              </button>
             </div>
           </div>
         </div>
@@ -114,35 +134,55 @@
   </div>
 </template>
 <script lang="ts">
-interface IState {
-  loading: boolean,
-  messageError: string,
-  dialog: boolean
-}
-
-import { Component, Prop, Vue } from 'vue-facing-decorator'
+import { useTripStore } from '@/stores/tripStore'
+import { Component, Prop, Vue, Watch } from 'vue-facing-decorator'
 import flatPickr from 'vue-flatpickr-component'
 import 'flatpickr/dist/flatpickr.css'
 import { Portuguese } from 'flatpickr/dist/l10n/pt.js'
+import VueSelect from 'vue3-select-component'
+import { useCartStore } from '@/stores/useCartStore'
+import { useRouter } from 'vue-router'
+import { Trip } from '@/models/Trip'
+
+interface IState {
+  loading: boolean,
+  messageError: string,
+  dialog: boolean,
+  ordination: string,
+  cart: Trip[]
+}
 
 @Component({
   components: {
-    flatPickr
+    flatPickr,
+    VueSelect
   }
 })
 export default class SearchComponent extends Vue {
   @Prop({ default: 'Formulário de Reserva de Hotel' }) title!: string
+  public cartStore = useCartStore()
   public config = {
     locale: Portuguese,
     dateFormat: 'd/m/Y'
   }
+  public tripStore = useTripStore()
   public guestsOptions = Array.from({ length: 10 }, (_, i) => i + 1)
   public form = {
     destination: '',
     checkInDate: '' as Date | string,
     checkOutDate: '' as Date | string,
     rooms: 1,
-    guests: 1
+    guests: 1,
+    ordination: '',
+    cart: []
+  }
+  router = useRouter()
+
+  @Watch('form.ordination')
+  onOrdinationChange(newVal: string, oldVal: string) {
+    if (newVal !== oldVal) {
+      this.tripStore.ordinationTrip(+newVal)
+    }
   }
 
   get isValidDateRange(): boolean {
@@ -161,6 +201,10 @@ export default class SearchComponent extends Vue {
       return true
     }
     return true
+  }
+
+  public goCompareHotels() {
+    this.router.push('/compare-hotels')
   }
 
   /**
@@ -191,15 +235,35 @@ export default class SearchComponent extends Vue {
       checkInDate: '',
       checkOutDate: '',
       rooms: 1,
-      guests: 1
+      guests: 1,
+      ordination: '',
+      cart: []
     }
+    this.tripStore.loadTrips()
+  }
+
+  private filterTrips(
+    trips: Trip[],
+    filterCriteria: {
+      destination: string
+    }
+  ): Trip[] {
+    const normalizedDestination = this.removeAccents(filterCriteria.destination.toLowerCase())
+    return trips.filter((trip) => {
+      const normalizedTripDestination = this.removeAccents(trip.destination.toLowerCase());
+      return normalizedTripDestination.includes(normalizedDestination);
+    });
+  }
+
+  private removeAccents(str: string): string {
+    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
   }
 
   public handleSubmit(): void {
     if (this.validatingForm()) {
-      // Lógica para submit
-      console.log('Formulário válido, submetendo...', this.form)
-      this.resetForm()
+      this.tripStore.loadTrips()
+      const trips: Trip[] = this.filterTrips(this.tripStore.trips, this.form)
+      this.tripStore.setTrips(trips)
     }
   }
 
@@ -260,6 +324,7 @@ export default class SearchComponent extends Vue {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+
 .submit-form button {
   width: 100%;
   padding: 10px;
