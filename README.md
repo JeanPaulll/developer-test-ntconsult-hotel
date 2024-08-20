@@ -16,9 +16,8 @@ O projeto está disponível para teste no seguinte link:
 [NTConsult Hotel Test Application](https://ntconsult-hotel-test-developer.netlify.app/)
 
 
-<img src="./public/1.png" alt="Tela 1" width="250">
+<img src="./public/1.png" alt="Tela 1">
 
-<img src="./public/2.png" alt="Tela 2" width="250">
 
 ## Requisitos Implementados
 
@@ -91,6 +90,7 @@ O projeto está disponível para teste no seguinte link:
 ### https://ntconsult-hotel-test-developer.netlify.app/
 [![Netlify Status](https://api.netlify.com/api/v1/badges/cc378d2c-80dc-46a5-9025-45a2d52ee326/deploy-status)](https://app.netlify.com/sites/ntconsult-hotel-test-developer/deploys)
 
+<img src="./public/2.png" alt="Tela 2">
 
 ## Estrutura do Projeto
 
