@@ -28,27 +28,27 @@ export const useTripStore = defineStore('tripStore', {
       this.loadTrips()
     },
     setTrips(trips: Trip[]) {
-      this.trips = [];
-      this.trips = [...trips].sort((a, b) => b.price - a.price);
+      this.trips = []
+      this.trips = [...trips].sort((a, b) => b.price - a.price)
     },
     ordinationTrip(type: number) {
-      const sortedTrips = [...this.trips].sort((a, b) => b.price - a.price);
+      const sortedTrips = [...this.trips].sort((a, b) => b.price - a.price)
       switch (type) {
         case 1:
-          this.trips = sortByLowestPrice(sortedTrips);
-          break;
+          this.trips = sortByLowestPrice(sortedTrips)
+          break
         case 2:
-          this.trips = sortByHighestPrice(sortedTrips);
-          break;
+          this.trips = sortByHighestPrice(sortedTrips)
+          break
         case 3:
-          this.trips = sortByAlphabeticalOrder(sortedTrips);
-          break;
+          this.trips = sortByAlphabeticalOrder(sortedTrips)
+          break
         case 4:
           this.loadTrips()
-          break;
+          break
         default:
           this.loadTrips()
-          break;
+          break
       }
     }
   }
@@ -59,7 +59,7 @@ export const useTripStore = defineStore('tripStore', {
  * @param trips
  */
 export function sortByHighestPrice(trips: Trip[]): Trip[] {
-  return trips.sort((a: Trip, b: Trip) => b.price - a.price).slice(0, 3);
+  return trips.sort((a: Trip, b: Trip) => b.price - a.price).slice(0, 3)
 }
 
 /**
@@ -67,7 +67,7 @@ export function sortByHighestPrice(trips: Trip[]): Trip[] {
  * @param trips
  */
 export function sortByLowestPrice(trips: Trip[]): Trip[] {
-  return trips.sort((a: Trip, b: Trip) => a.price - b.price).slice(0, 3);
+  return trips.sort((a: Trip, b: Trip) => a.price - b.price).slice(0, 3)
 }
 
 /**
@@ -75,5 +75,5 @@ export function sortByLowestPrice(trips: Trip[]): Trip[] {
  * @param trips
  */
 export function sortByAlphabeticalOrder(trips: Trip[]): Trip[] {
-  return trips.sort((a: Trip, b: Trip) => a.destination.localeCompare(b.destination)).slice(0, 3);
+  return trips.sort((a: Trip, b: Trip) => a.destination.localeCompare(b.destination)).slice(0, 3)
 }

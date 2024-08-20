@@ -9,7 +9,9 @@
               class="kode_write_detail search-img01 tab-pane fade active"
               role="tabpanel"
             >
-              <h5 class="title-icon"><b>{{ title }}</b></h5>
+              <h5 class="title-icon">
+                <b>{{ title }}</b>
+              </h5>
               <div class="booking_content">
                 <div class="kode_felid">
                   <label>Destino</label>
@@ -52,7 +54,11 @@
                                 outlined
                                 dense
                               ></v-select>
-                              <p>Você selecionou {{ form.rooms }} quarto{{ form.rooms > 1 ? 's.' : '' }}</p>
+                              <p>
+                                Você selecionou {{ form.rooms }} quarto{{
+                                  form.rooms > 1 ? 's.' : ''
+                                }}
+                              </p>
                             </div>
                           </div>
                           <div class="col-md-4 col-xs-12 col-sm-6">
@@ -64,7 +70,11 @@
                                 outlined
                                 dense
                               ></v-select>
-                              <p>Você selecionou {{ form.guests }} hóspede{{ form.guests > 1 ? 's.' : '' }}</p>
+                              <p>
+                                Você selecionou {{ form.guests }} hóspede{{
+                                  form.guests > 1 ? 's.' : ''
+                                }}
+                              </p>
                             </div>
                           </div>
                         </div>
@@ -75,8 +85,11 @@
                         <button class="btn-normal-1 animated effect2-color-1" type="submit">
                           Procure agora
                         </button>
-                        <button class="btn-normal-1 animated effect2-color-1" v-if="tripStore?.trips.length <= 0"
-                                @click="resetForm()">
+                        <button
+                          class="btn-normal-1 animated effect2-color-1"
+                          v-if="tripStore?.trips.length <= 0"
+                          @click="resetForm()"
+                        >
                           Limpar Pesquisa
                         </button>
                       </div>
@@ -93,17 +106,20 @@
               <VueSelect
                 v-model="form.ordination"
                 :options="[
-                        { label: 'Todos', value: '4' },
-                        { label: 'Menor preço', value: '1' },
-                        { label: 'Maior preço', value: '2' },
-                        { label: 'Ordem alfabética', value: '3' },
-                        ]"
+                  { label: 'Todos', value: '4' },
+                  { label: 'Menor preço', value: '1' },
+                  { label: 'Maior preço', value: '2' },
+                  { label: 'Ordem alfabética', value: '3' }
+                ]"
                 placeholder="Ordenar por"
               />
             </div>
             <div class="col-md-6 text-right">
-              <button class="btn-normal-5 animated effect2-color-2" v-if="cartStore.cartCount > 0"
-                      @click="goCompareHotels()">
+              <button
+                class="btn-normal-5 animated effect2-color-2"
+                v-if="cartStore.cartCount > 0"
+                @click="goCompareHotels()"
+              >
                 Compare hotéis
               </button>
             </div>
@@ -113,21 +129,10 @@
     </div>
   </form>
   <div class="pa-4">
-    <v-dialog
-      v-model="state.dialog"
-      width="auto"
-    >
-      <v-card
-        max-width="400"
-        prepend-icon="mdi-update"
-        :text="state?.messageError"
-      >
+    <v-dialog v-model="state.dialog" width="auto">
+      <v-card max-width="400" prepend-icon="mdi-update" :text="state?.messageError">
         <template v-slot:actions>
-          <v-btn
-            class="ms-auto"
-            text="Ok"
-            @click="state.dialog = false"
-          ></v-btn>
+          <v-btn class="ms-auto" text="Ok" @click="state.dialog = false"></v-btn>
         </template>
       </v-card>
     </v-dialog>
@@ -145,10 +150,10 @@ import { useRouter } from 'vue-router'
 import { Trip } from '@/models/Trip'
 
 interface IState {
-  loading: boolean,
-  messageError: string,
-  dialog: boolean,
-  ordination: string,
+  loading: boolean
+  messageError: string
+  dialog: boolean
+  ordination: string
   cart: Trip[]
 }
 
@@ -194,7 +199,10 @@ export default class SearchComponent extends Vue {
     const checkInTimestamp = checkInDate.getTime()
     const checkOutTimestamp = checkOutDate.getTime()
     if (checkInTimestamp > checkOutTimestamp) {
-      this.state = { dialog: true, messageError: 'A data de check-in deve ser anterior à data de check-out.' }
+      this.state = {
+        dialog: true,
+        messageError: 'A data de check-in deve ser anterior à data de check-out.'
+      }
       return false
     }
     if (checkInTimestamp === checkOutTimestamp) {
@@ -250,9 +258,9 @@ export default class SearchComponent extends Vue {
   ): Trip[] {
     const normalizedDestination = this.removeAccents(filterCriteria.destination.toLowerCase())
     return trips.filter((trip) => {
-      const normalizedTripDestination = this.removeAccents(trip.destination.toLowerCase());
-      return normalizedTripDestination.includes(normalizedDestination);
-    });
+      const normalizedTripDestination = this.removeAccents(trip.destination.toLowerCase())
+      return normalizedTripDestination.includes(normalizedDestination)
+    })
   }
 
   private removeAccents(str: string): string {
@@ -280,7 +288,10 @@ export default class SearchComponent extends Vue {
     }
 
     if (!this.form.checkInDate || !this.form.checkOutDate) {
-      this.state = { dialog: true, messageError: 'Por favor, insira as datas de check-in e check-out.' }
+      this.state = {
+        dialog: true,
+        messageError: 'Por favor, insira as datas de check-in e check-out.'
+      }
       return false
     }
 

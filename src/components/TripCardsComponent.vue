@@ -5,27 +5,23 @@
         <div class="content-gallery tab-content">
           <div id="grid-tab-1" class="tab-pane fade in active" role="tabpanel">
             <div class="cart">
-              <v-chip v-if="cartStore.cartCount > 0"
-                      color="primary"
-                      class="mb-4 mt-4"
-              >
+              <v-chip v-if="cartStore.cartCount > 0" color="primary" class="mb-4 mt-4">
                 Estadia selecionada {{ cartStore.cartCount }}
               </v-chip>
-              <v-chip v-if="cartStore.cartCount > 0"
-                      color="secundary"
-                      class="ml-2 mb-4 mt-4 clear-cart" @click="clearCart()"
+              <v-chip
+                v-if="cartStore.cartCount > 0"
+                color="secundary"
+                class="ml-2 mb-4 mt-4 clear-cart"
+                @click="clearCart()"
               >
                 Limpar Carrinho X
               </v-chip>
             </div>
             <div class="row">
               <TripCardComponent v-for="trip in trips" :key="trip.id" :trip="trip" />
-              <v-alert v-if="!trips.length"
-                border="top"
-                border-color="error"
-                elevation="2"
-              >
-                Nenhuma viagem encontrada para os critérios de pesquisa fornecidos. Por favor, tente ajustar seus filtros ou escolha outro destino
+              <v-alert v-if="!trips.length" border="top" border-color="error" elevation="2">
+                Nenhuma viagem encontrada para os critérios de pesquisa fornecidos. Por favor, tente
+                ajustar seus filtros ou escolha outro destino
               </v-alert>
             </div>
           </div>

@@ -73,7 +73,9 @@
               </div>
             </div>
             <h4><a href="#">COMPARE HOTÉIS</a></h4>
-            <p>Encontre o hotel perfeito ao comparar preços, comodidades e avaliações em um só lugar.</p>
+            <p>
+              Encontre o hotel perfeito ao comparar preços, comodidades e avaliações em um só lugar.
+            </p>
           </div>
         </div>
         <div class="col-md-4 col-sm-6 col-xs-12">

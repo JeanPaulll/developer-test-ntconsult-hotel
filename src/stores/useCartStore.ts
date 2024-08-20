@@ -8,23 +8,23 @@ export const useCartStore = defineStore('cartStore', {
   getters: {
     cartCount: (state) => state.cart.length,
     isTripInCart: (state) => (tripId: number) => {
-      return state.cart.some((trip) => trip.id === tripId);
+      return state.cart.some((trip) => trip.id === tripId)
     },
     totalPrice: (state) => {
-      return state.cart.reduce((total, trip) => total + trip.price, 0);
+      return state.cart.reduce((total, trip) => total + trip.price, 0)
     }
   },
   actions: {
     addToCart(trip: Trip) {
       if (!this.isTripInCart(trip.id)) {
-        this.cart.push(trip);
+        this.cart.push(trip)
       }
     },
     removeFromCart(tripId: number) {
-      this.cart = this.cart.filter((trip) => trip.id !== tripId);
+      this.cart = this.cart.filter((trip) => trip.id !== tripId)
     },
     clearCart() {
-      this.cart = [];
+      this.cart = []
     }
   }
-});
+})
