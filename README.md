@@ -57,7 +57,7 @@ O projeto está disponível para teste no seguinte link:
 
 1. Clone o repositório:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/JeanPaulll/developer-test-ntconsult-hotel.git
    cd developer-ntconsult-hotel
    ```
 
@@ -77,6 +77,11 @@ O projeto está disponível para teste no seguinte link:
   ```bash
   npm run test:unit
   ```
+
+
+<img src="./public/4.png" alt="Tela 4" width="400">
+
+
 
 - Para executar os testes de integração (E2E):
   ```bash
