@@ -16,9 +16,9 @@ O projeto está disponível para teste no seguinte link:
 [NTConsult Hotel Test Application](https://ntconsult-hotel-test-developer.netlify.app/)
 
 
-<img src="./public/1.png" alt="Tela 1" width="300">
-<img src="./public/2.png" alt="Tela 2" width="300">
+<img src="./public/1.png" alt="Tela 1" width="250">
 
+<img src="./public/2.png" alt="Tela 2" width="250">
 
 ## Requisitos Implementados
 
@@ -31,11 +31,7 @@ O projeto está disponível para teste no seguinte link:
 
 - Adicionada funcionalidade para que o usuário possa selecionar múltiplos hotéis dos resultados de busca e compará-los lado a lado, facilitando a escolha do melhor hotel.
 
-### 3. Reserva de Quartos
-
-- Implementado um formulário de reserva, onde o usuário pode fornecer informações pessoais e detalhes de pagamento para completar a reserva.
-
-### 4. Notificações
+### 3. Notificações
 
 - Incluído um sistema de notificações que informa o usuário sobre o status da sua reserva, garantindo transparência e segurança durante o processo.
 
