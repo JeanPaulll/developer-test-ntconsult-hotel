@@ -11,7 +11,7 @@
             <ul class="kf_meta_2">
               <li>
                 <span class="fa fa-clock-o"></span>
-                <a href="#">
+                <a @click="addToCart(trip)">
                   {{ calculateTripDuration(trip?.checkInDate, trip?.checkOutDate) }}
                 </a>
               </li>
@@ -25,11 +25,11 @@
       <div class="kf_trip_content">
         <ul class="kf_meta_2 bk-colr">
           <li>
-            <a href="#">{{ trip?.destination }}</a>
+            <a @click="addToCart(trip)">{{ trip?.destination }}</a>
           </li>
         </ul>
         <h4>
-          <a href="#"> {{ trip.destination }} </a>
+          <a @click="addToCart(trip)"> {{ trip.destination }} </a>
         </h4>
         <p>{{ trip.description }}</p>
         <ul class="kf_reviews">
@@ -46,6 +46,26 @@
       </ul>
     </div>
   </div>
+  <div class="text-center">
+    <v-dialog
+      v-model="dialog"
+      width="auto"
+    >
+      <v-card
+        max-width="400"
+        prepend-icon="mdi-update"
+        text="Sua reserva no hotel foi adicionada ao carrinho com sucesso!"
+      >
+        <template v-slot:actions>
+          <v-btn
+            class="ms-auto"
+            text="Ok"
+            @click="dialog = false"
+          ></v-btn>
+        </template>
+      </v-card>
+    </v-dialog>
+  </div>
 </template>
 
 <script lang="ts">
@@ -61,6 +81,7 @@ import { useCartStore } from '@/stores/useCartStore'
 export default class TripCardComponent extends Vue {
   @Prop({ required: true }) trip!: Trip
   public cartStore = useCartStore()
+  public dialog = false
 
   /**
    * @param value
@@ -77,6 +98,8 @@ export default class TripCardComponent extends Vue {
    */
   public addToCart(trip: Trip): void {
     this.cartStore.addToCart(trip)
+    this.scrollToTop()
+    setTimeout(() => this.dialog = true, 1000)
   }
 
   /**
@@ -92,6 +115,13 @@ export default class TripCardComponent extends Vue {
     const days = nights + 1 // Dias são noites + 1
     return `${days} dia${days > 1 ? 's' : ''} e ${nights} noite${nights > 1 ? 's' : ''}`
   }
+
+  private scrollToTop(): void {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
 }
 </script>
 
@@ -106,6 +136,10 @@ export default class TripCardComponent extends Vue {
 }
 
 .btn-blog {
+  cursor: pointer;
+}
+
+.kf_meta_2 {
   cursor: pointer;
 }
 </style>
