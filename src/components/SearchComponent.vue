@@ -277,6 +277,7 @@ export default class SearchComponent extends Vue {
 
   public handleSubmit(): void {
     if (this.validatingForm()) {
+      this.scrollToDown()
       this.tripStore.loadTrips()
       const trips: Trip[] = this.filterTrips(this.tripStore.trips, this.form)
       this.tripStore.setTrips(trips)
@@ -314,8 +315,11 @@ export default class SearchComponent extends Vue {
     return new Date(year, month - 1, day)
   }
 
-  created() {
-    console.log('Created chamado')
+  private scrollToDown(): void {
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: 'smooth'
+    })
   }
 }
 </script>
